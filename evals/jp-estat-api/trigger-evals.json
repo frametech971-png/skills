@@ -1,0 +1,109 @@
+{
+ "skill_name": "jp-estat-api",
+ "queries": [
+  {
+   "q": "e-Stat API で都道府県別の人口を取得して",
+   "trigger": true
+  },
+  {
+   "q": "統計表ID の探し方を教えて。e-Stat の API で",
+   "trigger": true
+  },
+  {
+   "q": "国勢調査のデータを API で取って CSV にして",
+   "trigger": true
+  },
+  {
+   "q": "e-Stat の appId の取り方は？",
+   "trigger": true
+  },
+  {
+   "q": "e-Stat API で値が - や … になっているのは何？",
+   "trigger": true
+  },
+  {
+   "q": "e-Stat API の取得件数の上限を超えるときはどうする？",
+   "trigger": true
+  },
+  {
+   "q": "政府統計の総合窓口の API で、市区町村別の世帯数を出典つきで集計したい",
+   "trigger": true
+  },
+  {
+   "q": "getStatsData で NEXT_KEY が返ってきた。続きの取り方は？",
+   "trigger": true
+  },
+  {
+   "q": "Fetch Japanese census population by prefecture from the e-Stat API into a CSV",
+   "trigger": true
+  },
+  {
+   "q": "How do I find the statsDataId for a table with the e-Stat API getStatsList?",
+   "trigger": true
+  },
+  {
+   "q": "e-Stat API returns STATUS 100, what does it mean and how do I fix it?",
+   "trigger": true
+  },
+  {
+   "q": "How should I cite data pulled from the e-Stat API?",
+   "trigger": true
+  },
+  {
+   "q": "楽天市場で商品を検索して最安値を比べて",
+   "trigger": false
+  },
+  {
+   "q": "この日本語の文章をAIっぽくない自然な文体に直して",
+   "trigger": false
+  },
+  {
+   "q": "e-Stat の画面から手作業で統計表をダウンロードする手順を教えて",
+   "trigger": false
+  },
+  {
+   "q": "最新の人口減少の原因を分析して、政策を提言して",
+   "trigger": false
+  },
+  {
+   "q": "民間の調査会社のアンケート結果を集計して",
+   "trigger": false
+  },
+  {
+   "q": "日報を書いて。午前は見積作成、午後は訪問",
+   "trigger": false
+  },
+  {
+   "q": "Webサイトのセキュリティ監査をして",
+   "trigger": false
+  },
+  {
+   "q": "特定電子メール法に沿ったステップメールを書いて",
+   "trigger": false
+  },
+  {
+   "q": "この説明をスライドの HTML にして図解して",
+   "trigger": false
+  },
+  {
+   "q": "Excel のピボットテーブルの作り方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "総務省統計局のホームページのデザインを評価して",
+   "trigger": false
+  },
+  {
+   "q": "Python で CSV を読み込んで pandas で平均を出して（統計 API は使わない）",
+   "trigger": false
+  },
+  {
+   "q": "Parse this JSON from the GitHub REST API and list the issues",
+   "trigger": false
+  },
+  {
+   "q": "日本の人口が減っている理由を解説して",
+   "trigger": false
+  }
+ ]
+}

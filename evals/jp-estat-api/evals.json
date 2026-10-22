@@ -1,0 +1,275 @@
+{
+ "skill_name": "jp-estat-api",
+ "evals": [
+  {
+   "id": 1,
+   "name": "appid-howto",
+   "prompt": "e-Stat の API を使ってみたいんだけど、appId ってどうやって取るの？ あと、コードに書いて使うとき気をつけることはある？",
+   "files": [],
+   "checks": [
+    {
+     "text": "ユーザ登録から始める",
+     "type": "regex",
+     "value": "ユーザ登録|ユーザー登録|会員登録|アカウント"
+    },
+    {
+     "text": "マイページの API 機能（アプリケーションID発行）から取る",
+     "type": "regex",
+     "value": "マイページ"
+    },
+    {
+     "text": "appId は 3 つまで",
+     "type": "regex",
+     "value": "3つ|３つ|3 つ|3個|3 個|三つ"
+    },
+    {
+     "text": "環境変数に入れ、コードやチャットに直書きしない",
+     "type": "regex",
+     "value": "環境変数|ESTAT_APP_ID"
+    },
+    {
+     "text": "第三者への譲渡・貸与をしない",
+     "type": "regex",
+     "value": "譲渡|貸与|共有しない|他人に"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "paging-next-key",
+   "prompt": "e-Stat API で市区町村別のデータを取っていたら、途中で切れて全部取れていない気がする。10万件を超えるときの取り方を教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "1 回の上限が 10 万件であることを言う",
+     "type": "regex",
+     "value": "10万件|100,?000"
+    },
+    {
+     "text": "NEXT_KEY を使う",
+     "type": "contains",
+     "value": "NEXT_KEY"
+    },
+    {
+     "text": "NEXT_KEY を startPosition に入れて続きを取る",
+     "type": "contains",
+     "value": "startPosition"
+    },
+    {
+     "text": "NEXT_KEY が無くなるまで繰り返す",
+     "type": "regex",
+     "value": "(無く|なく|消え|返ら|付かな|含まれな)[^。\\n]*(まで|ら終)|(繰り返|ループ)"
+    },
+    {
+     "text": "TOTAL_NUMBER と取得行数を突き合わせる",
+     "type": "regex",
+     "value": "TOTAL_NUMBER"
+    },
+    {
+     "text": "cd* や lv* で絞る手を示す",
+     "type": "regex",
+     "value": "cdArea|cdTime|lvArea|絞り込|絞って"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "symbols-meaning",
+   "prompt": "e-Stat から取った CSV の value 列に「-」と「…」と「X」が入っている行があります。これって何ですか？ 合計を出すとき 0 として足していい？",
+   "files": [],
+   "checks": [
+    {
+     "text": "記号の意味は統計表ごとに違い、その表の NOTE・注記を見る",
+     "type": "regex",
+     "value": "表ごと|統計ごと|調査ごと|NOTE|注記"
+    },
+    {
+     "text": "X は秘匿（公表しない）",
+     "type": "regex",
+     "value": "秘匿|公表しない"
+    },
+    {
+     "text": "- は該当数字なし・事実のないもの",
+     "type": "regex",
+     "value": "皆無|事実のない|該当(する)?数字(が)?(ない|無い)|数字が得られない"
+    },
+    {
+     "text": "… は不詳・調査を欠くもの・得られないもの",
+     "type": "regex",
+     "value": "不詳|調査を欠|得られない|未調査"
+    },
+    {
+     "text": "0 として足さず、除外した件数を報告する",
+     "type": "regex",
+     "value": "(0|ゼロ)(と|に)して(は)?(足さ|加え|扱わ|いけ|はいけ|ダメ|だめ|不可)|足さ(ない|ず)|除(外|い)"
+    },
+    {
+     "text": "取得時に replaceSpChar で置換すると区別が消える",
+     "type": "regex",
+     "value": "replaceSpChar"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "unknown-symbol-trap",
+   "prompt": "e-Stat の表に「***」という値が出てきました。ゼロの意味だと思うので 0 として合計に入れたいです。それで合ってますか？",
+   "files": [],
+   "checks": [
+    {
+     "text": "「***」の意味を断定しない（表の NOTE・注記で確認）",
+     "type": "regex",
+     "value": "NOTE|注記|確認|断定でき|分かりません|わかりません|表ごと"
+    },
+    {
+     "text": "ゼロだと保証できないので 0 にしない",
+     "type": "regex",
+     "value": "(0|ゼロ)(と|に)(は)?(決め|断定|限ら|できな|しない|しては|置き換え)|限らない|保証できない|安易に|やめて|避けて|入れないで|しないで|置き換えないで|合計から除"
+    },
+    {
+     "text": "「*** はゼロを表す」と言い切らない",
+     "type": "not_regex",
+     "value": "\\*{3}\\s*(は|=|＝|：)\\s*(0|ゼロ)\\s*(を表|です|を意味|で合っ)"
+    },
+    {
+     "text": "除外または別扱いして件数を示す案を出す",
+     "type": "regex",
+     "value": "除外|除いて|別(扱い|列)|件数"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "no-appid-fetch",
+   "prompt": "appId はまだ持ってないんだけど、e-Stat API で東京都と大阪府の2020年の人口を今すぐ取得して教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "appId の取り方（マイページ）を案内する",
+     "type": "regex",
+     "value": "マイページ|ユーザ登録|ユーザー登録"
+    },
+    {
+     "text": "環境変数 ESTAT_APP_ID に入れる流れを示す",
+     "type": "regex",
+     "value": "ESTAT_APP_ID|環境変数"
+    },
+    {
+     "text": "通信せず URL を確認できる --dry-run、または URL の組み立てを示す",
+     "type": "regex",
+     "value": "--dry-run|getStatsData"
+    },
+    {
+     "text": "statsDataId は検索（getStatsList / list）で調べる流れにする",
+     "type": "regex",
+     "value": "getStatsList|list|検索|statsDataId"
+    },
+    {
+     "text": "取得していない人口の数値を作らない（人の数が 7 桁以上で並ぶ文を出さない）",
+     "type": "not_regex",
+     "value": "(東京都|大阪府)[^。\\n]{0,20}[0-9,]{7,}\\s*人"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "credit-and-processing",
+   "prompt": "e-Stat のデータを集計して、自社のブログ記事にグラフで載せたい。出典ってどう書けばいい？ あと、e-Stat API を使ったアプリを公開するときに必要な表示も教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "出典に「政府統計の総合窓口（e-Stat）」を書く",
+     "type": "regex",
+     "value": "政府統計の総合窓口"
+    },
+    {
+     "text": "加工した場合は「加工して作成」と明記",
+     "type": "regex",
+     "value": "加工して作成|加工した旨|加工して"
+    },
+    {
+     "text": "国が作成したかのように見せてはいけない",
+     "type": "regex",
+     "value": "国[（(]?(又は|または|や)?府省[^。\\n]*[）)]?が作成|あたかも|府省.{0,10}作成し|見せな|作ったかのよう|作成したかのよう|誤解"
+    },
+    {
+     "text": "API を使った公開サービスのクレジット文を示す",
+     "type": "contains",
+     "value": "国によって保証されたものではありません"
+    },
+    {
+     "text": "政府標準利用規約・CC BY 互換に触れる",
+     "type": "regex",
+     "value": "政府標準利用規約|CC BY|クリエイティブ・コモンズ"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "find-stats-table",
+   "prompt": "国勢調査の都道府県別の人口が載っている統計表ID を知りたい。e-Stat API でどうやって探すの？",
+   "files": [],
+   "checks": [
+    {
+     "text": "getStatsList（list）で探す",
+     "type": "regex",
+     "value": "getStatsList|estat_fetch\\.py list"
+    },
+    {
+     "text": "statsCode や searchWord で絞る",
+     "type": "regex",
+     "value": "statsCode|searchWord|--search-word|--stats-code"
+    },
+    {
+     "text": "getMetaInfo（meta）で次元とコードを確かめる流れ",
+     "type": "regex",
+     "value": "getMetaInfo|estat_fetch\\.py meta|メタ情報"
+    },
+    {
+     "text": "候補が複数あるのでユーザーに選んでもらう・確認する",
+     "type": "regex",
+     "value": "候補|選(ん|ぶ)|確認して"
+    },
+    {
+     "text": "実在を確かめていない statsDataId を断定して書かない（0 始まり 10 桁で、全部 0 のプレースホルダー以外）",
+     "type": "not_regex",
+     "value": "(statsDataId|統計表ID)\\s*(は|=|＝|：|:)\\s*[`\"']?0(?!0{9})\\d{9}"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "sum-with-double-count-and-symbol",
+   "prompt": "e-Stat から取った CSV の一部です。北海道・青森県・岩手県の人口の合計を出して。\n\narea_code,area_name,unit,value,value_num,symbol,symbol_note\n00000,全国,人,126146099,126146099,,\n01000,北海道,人,5224614,5224614,,\n02000,青森県,人,1237984,1237984,,\n03000,岩手県,人,X,,X,数字が秘匿されているもの\n\n全国も足せば全体の合計になるよね？",
+   "files": [],
+   "checks": [
+    {
+     "text": "数値の 2 件だけの合計 6,462,598 を出す",
+     "type": "regex",
+     "value": "6,?462,?598"
+    },
+    {
+     "text": "岩手県は X（秘匿）なので合計から除いたと明記する",
+     "type": "regex",
+     "value": "岩手[^\\n]*(除|含ま|秘匿|算入しな|足せ|足して)|(除|秘匿)[^\\n]*岩手"
+    },
+    {
+     "text": "全国は 3 道県を含むので足さない（二重計上を指摘）",
+     "type": "regex",
+     "value": "二重|重複|含まれ|含む|ダブ"
+    },
+    {
+     "text": "全国を足した 132,608,697 を答えにしない",
+     "type": "not_regex",
+     "value": "132,?608,?697"
+    },
+    {
+     "text": "合計が 3 道県の全体ではなく 2 件分であることを示す",
+     "type": "regex",
+     "value": "2(件|道県|県)|二(件|道県)|一部|下回|含まない|含まれない|過小"
+    }
+   ]
+  }
+ ],
+ "note_revision": "2026-10-22: 初回採点で、丁寧語・言い換えを拾えない check（スキルあり・なし両方の正しい回答を落とした）を広げた。新旧どちらにも同じ条件で適用。初版は evals.v1.json"
+}

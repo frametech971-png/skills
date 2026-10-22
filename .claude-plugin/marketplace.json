@@ -115,6 +115,15 @@
       "skills": [
         "./skills/jp-data-normalizer"
       ]
+    },
+    {
+      "name": "jp-estat-api",
+      "description": "政府統計の総合窓口 e-Stat の API で日本の公的統計を取得し、CSV に整えて出典つきで集計する（統計表の検索、メタ情報、統計データの取得、NEXT_KEY のページング、欠損・秘匿記号の扱い）。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-estat-api"
+      ]
     }
   ]
 }
