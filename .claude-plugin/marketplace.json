@@ -7,5 +7,15 @@
     "description": "日本語で使えるエージェントスキル集（Agent Skills 形式。貼り付け版つき）",
     "version": "1.0.0"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "jp-internal-comms",
+      "description": "日本の職場で使う社内文書（日報・週報・3P報告・議事録・稟議書・社内通達・社内報・障害報告とお詫び・社内FAQ）を、型に沿って書く。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-internal-comms"
+      ]
+    }
+  ]
 }

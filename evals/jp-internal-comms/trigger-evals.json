@@ -1,0 +1,22 @@
+{"skill_name":"jp-internal-comms","queries":[
+{"q":"今日の日報を書いて。午前は見積作成、午後は2社訪問","trigger":true},
+{"q":"会議のメモから議事録を作って。決定事項とToDoを分けて","trigger":true},
+{"q":"ノートPCを買うための稟議書の文面を作りたい","trigger":true},
+{"q":"昨日の夕方にサイトが落ちた件の障害報告を上長向けに書いて","trigger":true},
+{"q":"全社向けに、来月からの在宅勤務ルール変更のお知らせを作って","trigger":true},
+{"q":"今週の週報を3P（進捗・計画・課題）でまとめて","trigger":true},
+{"q":"社内FAQを作りたい。経費精算の質問が多い","trigger":true},
+{"q":"Write this week's 3P update for my engineering team from these notes","trigger":true},
+{"q":"Draft meeting minutes with action items from this transcript","trigger":true},
+{"q":"Write an internal incident report for yesterday's outage","trigger":true},
+{"q":"この文章をAIっぽくない自然な日本語に直して","trigger":false},
+{"q":"お客様向けに、サービス停止のお詫びメールを書いて","trigger":false},
+{"q":"新製品のプレスリリースを書いて","trigger":false},
+{"q":"雇用契約書のひな形を作って","trigger":false},
+{"q":"就業規則の在宅勤務の条文を改定して","trigger":false},
+{"q":"新規登録者向けのステップメールを5通書いて","trigger":false},
+{"q":"この提案をスライドにデザインして","trigger":false},
+{"q":"このSlackのメッセージを英語に翻訳して","trigger":false},
+{"q":"ブログ記事の構成案を考えて","trigger":false},
+{"q":"このPythonスクリプトのバグを直して","trigger":false}
+]}

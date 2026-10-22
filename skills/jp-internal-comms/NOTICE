@@ -1,0 +1,7 @@
+jp-internal-comms
+Copyright 2026 frametech
+
+This product is derived from "internal-comms" in https://github.com/anthropics/skills
+(commit dbd4588, skills/internal-comms), licensed under the Apache License, Version 2.0.
+The upstream skill had no NOTICE file. It has been substantially modified by frametech
+(Japanese document types, rewritten instructions and references, added scripts/jpdate.mjs).
