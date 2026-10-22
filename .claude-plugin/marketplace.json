@@ -1,0 +1,11 @@
+{
+  "name": "frametech-skills",
+  "owner": {
+    "name": "frametech"
+  },
+  "metadata": {
+    "description": "日本語で使えるエージェントスキル集（Agent Skills 形式。貼り付け版つき）",
+    "version": "1.0.0"
+  },
+  "plugins": []
+}
