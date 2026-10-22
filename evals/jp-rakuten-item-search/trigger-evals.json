@@ -1,0 +1,22 @@
+{"skill_name":"jp-rakuten-item-search","queries":[
+{"q":"楽天でモバイルバッテリーを探して、レビューの多い順に10件並べて","trigger":true},
+{"q":"この商品リストの楽天アフィリエイトリンクをまとめて取ってきて","trigger":true},
+{"q":"楽天APIで商品検索するNode.jsのコード書いて","trigger":true},
+{"q":"楽天のAPIが403で Invalid Access Key って出るんだけど","trigger":true},
+{"q":"旧楽天APIのコードを新しいopenapiのやつに移行したい","trigger":true},
+{"q":"楽天市場で5000円以下の電気ケトルを安い順に出して","trigger":true},
+{"q":"Search Rakuten Ichiba for 'coffee grinder' and give me the top 5 by reviews","trigger":true},
+{"q":"Rakuten Ichiba Item Search API returns HTTP_REFERRER_MISSING, how to fix?","trigger":true},
+{"q":"ブログの比較表に楽天の価格とリンクを入れたいので取得して","trigger":true},
+{"q":"楽天の商品検索APIで accessKey ってどこで発行するの？","trigger":true},
+{"q":"Amazonで同じ商品の価格を調べて","trigger":false},
+{"q":"Yahoo!ショッピングAPIで商品検索するコードを書いて","trigger":false},
+{"q":"楽天カードの還元率を他のカードと比べて","trigger":false},
+{"q":"楽天トラベルで来週の京都の空き宿を探して","trigger":false},
+{"q":"このLPの文章を自然な日本語に整えて","trigger":false},
+{"q":"価格.comの最安値を見て","trigger":false},
+{"q":"Stripeの決済APIで403が出る原因は？","trigger":false},
+{"q":"楽天証券の新NISAの始め方を教えて","trigger":false},
+{"q":"Write a Python script to scrape product prices from a website","trigger":false},
+{"q":"アフィリエイト記事の構成案を作って","trigger":false}
+]}

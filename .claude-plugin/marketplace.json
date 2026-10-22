@@ -16,6 +16,15 @@
       "skills": [
         "./skills/jp-internal-comms"
       ]
+    },
+    {
+      "name": "jp-rakuten-item-search",
+      "description": "楽天市場の商品を、2026年版の楽天ウェブサービス商品検索API（openapi.rakuten.co.jp、applicationId＋accessKey＋Referer）で検索し、商品名・価格・ショップ・レビュー・商品URL／アフィリエイトURLを表・JSON・CSVで返す。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-rakuten-item-search"
+      ]
     }
   ]
 }

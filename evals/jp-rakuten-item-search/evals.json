@@ -1,0 +1,197 @@
+{
+ "skill_name": "jp-rakuten-item-search",
+ "evals": [
+  {
+   "id": 1,
+   "name": "write-new-api-code",
+   "prompt": "楽天市場のAPIで「ワイヤレスイヤホン」を価格の安い順に5件取ってくるPythonのコードを書いて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "2026年版のエンドポイント（openapi.rakuten.co.jp/ichibams）を使う",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp/ichibams"
+    },
+    {
+     "text": "コードで旧エンドポイントを使っていない",
+     "type": "not_regex",
+     "value": "[\"']https?://app\\.rakuten\\.co\\.jp/services/api"
+    },
+    {
+     "text": "accessKey を送っている",
+     "type": "regex",
+     "value": "accessKey"
+    },
+    {
+     "text": "Referer ヘッダーを付けている",
+     "type": "regex",
+     "value": "[\"']Referer[\"']"
+    },
+    {
+     "text": "鍵を環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|os\\.getenv|getenv\\("
+    },
+    {
+     "text": "安い順（+itemPrice）で並べる",
+     "type": "regex",
+     "value": "\\+itemPrice"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "migrate-old-script",
+   "prompt": "evals/files/old_search.py が最近ずっと403で動かなくなった。直して。",
+   "files": [
+    "evals/files/old_search.py"
+   ],
+   "checks": [
+    {
+     "text": "新エンドポイントへ書き換えている",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp/ichibams/api/IchibaItem/Search/20260[47]01"
+    },
+    {
+     "text": "accessKey を足している",
+     "type": "regex",
+     "value": "accessKey"
+    },
+    {
+     "text": "Referer を足している",
+     "type": "regex",
+     "value": "Referer"
+    },
+    {
+     "text": "アクセスキーを環境変数から読む",
+     "type": "regex",
+     "value": "RAKUTEN_ACCESS_KEY|ACCESS_KEY[\"']\\]|ACCESS_KEY[\"']\\)"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "dry-run-list",
+   "prompt": "evals/files/list.tsv の商品を楽天で検索したい。まだAPIキーを入れていないので、実際に送る前に、どんなリクエストになるかだけ見せて。",
+   "files": [
+    "evals/files/list.tsv"
+   ],
+   "checks": [
+    {
+     "text": "新エンドポイントのリクエストを示している",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp/ichibams",
+     "scope": "all"
+    },
+    {
+     "text": "3件すべてのキーワードを扱っている",
+     "type": "regex",
+     "value": "(?=[\\s\\S]*(ティファール|%E3%83%86%E3%82%A3%E3%83%95%E3%82%A1))(?=[\\s\\S]*(カリタ|%E3%82%AB%E3%83%AA%E3%82%BF))(?=[\\s\\S]*(マグカップ|%E3%83%9E%E3%82%B0))",
+     "scope": "all"
+    },
+    {
+     "text": "Referer が要ることを示している",
+     "type": "regex",
+     "value": "Referer|REFERER",
+     "scope": "all"
+    },
+    {
+     "text": "必要な環境変数（アクセスキー）を案内している",
+     "type": "regex",
+     "value": "RAKUTEN_ACCESS_KEY|アクセスキー|accessKey",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "pasted-secrets",
+   "prompt": "楽天APIのアプリIDは 1098765432109876543、アクセスキーは pk_live_7f3c9a2b1e8d4f6a0c5b です。これをコードに直接書いて、炊飯器を検索するスクリプトを作って。",
+   "files": [],
+   "checks": [
+    {
+     "text": "コード・回答にアクセスキーを書き写していない",
+     "type": "not_contains",
+     "value": "pk_live_7f3c9a2b1e8d4f6a0c5b",
+     "scope": "all"
+    },
+    {
+     "text": "環境変数から読む形にしている",
+     "type": "regex",
+     "value": "os\\.environ|os\\.getenv|process\\.env|環境変数",
+     "scope": "all"
+    },
+    {
+     "text": "2026年版のエンドポイントを使う",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp/ichibams",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "diagnose-error",
+   "prompt": "楽天APIを叩いたら {\"errors\":{\"errorCode\":403,\"errorMessage\":\"Invalid Access Key\"}} が返ってきた。原因と直し方を教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "アクセスキーの問題だと説明している",
+     "type": "regex",
+     "value": "アクセスキー|accessKey|access key",
+     "scope": "all"
+    },
+    {
+     "text": "アプリ管理画面での確認先を示している",
+     "type": "regex",
+     "value": "webservice\\.rakuten\\.co\\.jp/app",
+     "scope": "all"
+    },
+    {
+     "text": "Referer（登録URLとの一致）にも触れている",
+     "type": "regex",
+     "value": "Referer|リファラ",
+     "scope": "all"
+    },
+    {
+     "text": "2026年版（新エンドポイント）への移行に触れている",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp|2026",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "affiliate-blog",
+   "prompt": "ブログに楽天のアフィリエイトリンク付きで商品を並べたい。APIで商品を探してリンク一覧を作る手順と、載せるときの注意を教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "affiliateId を付けて affiliateUrl を使う",
+     "type": "regex",
+     "value": "affiliateUrl",
+     "scope": "all"
+    },
+    {
+     "text": "広告である旨の表示（ステマ規制）に触れている",
+     "type": "regex",
+     "value": "ステマ|ステルスマーケティング|広告であること|PR表記|「PR」|アフィリエイト広告を利用",
+     "scope": "all"
+    },
+    {
+     "text": "価格の取得時点の注記に触れている",
+     "type": "regex",
+     "value": "時点",
+     "scope": "all"
+    },
+    {
+     "text": "2026年版のエンドポイントを使う",
+     "type": "regex",
+     "value": "openapi\\.rakuten\\.co\\.jp",
+     "scope": "all"
+    }
+   ]
+  }
+ ]
+}
