@@ -1,0 +1,22 @@
+{"skill_name":"lean-browser-ops","queries":[
+{"q":"Chrome でこのサイトを開いてフォームに入力して","trigger":true},
+{"q":"ブラウザを操作して、管理画面から請求書をダウンロードして","trigger":true},
+{"q":"Claude in Chrome でこのページの内容を読み取って整理して","trigger":true},
+{"q":"ブラウザ操作をさせるとトークンが急に増える。どうすれば抑えられる？","trigger":true},
+{"q":"画面を見ながら、このサイトのボタンを順番に押していって","trigger":true},
+{"q":"Chrome 拡張でログイン済みのサイトの注文履歴を一覧にして","trigger":true},
+{"q":"Use Claude in Chrome to fill out this signup form","trigger":true},
+{"q":"Automate this task in my browser and keep token usage low","trigger":true},
+{"q":"Open the page in Chrome, click through the settings, and tell me what's there","trigger":true},
+{"q":"mcp__claude-in-chrome のツールで、この画面のスクショを撮って確認して","trigger":true},
+{"q":"WebFetch でこの URL の内容を要約して","trigger":false},
+{"q":"Playwright で E2E テストを書いて","trigger":false},
+{"q":"Puppeteer でスクレイピングするコードを書いて","trigger":false},
+{"q":"このテーマについてネットで検索して調べて","trigger":false},
+{"q":"JavaScript のコードをレビューして","trigger":false},
+{"q":"Chrome の DevTools の使い方を教えて","trigger":false},
+{"q":"Chrome の拡張機能を自作したい","trigger":false},
+{"q":"HTML と CSS でログインフォームを作って","trigger":false},
+{"q":"Web サイトの表示速度を改善して","trigger":false},
+{"q":"このスクリーンショットの画像に何が写っているか説明して","trigger":false}
+]}

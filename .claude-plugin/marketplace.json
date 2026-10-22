@@ -124,6 +124,15 @@
       "skills": [
         "./skills/jp-estat-api"
       ]
+    },
+    {
+      "name": "lean-browser-ops",
+      "description": "Claude Code の Chrome 連携（Claude in Chrome。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/lean-browser-ops"
+      ]
     }
   ]
 }

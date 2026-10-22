@@ -19,6 +19,7 @@
 | [`jp-business-days`](skills/jp-business-days) | 日本の祝日・振替休日・国民の休日を踏まえて、営業日を計算する。 | MIT | v1.0.0 |
 | [`jp-data-normalizer`](skills/jp-data-normalizer) | 日本語の業務データ（名簿・顧客リスト・CSV）の表記ゆれを直す。 | MIT | v1.0.0 |
 | [`jp-estat-api`](skills/jp-estat-api) | 政府統計の総合窓口 e-Stat の API で日本の公的統計を取得し、CSV に整えて出典つきで集計する（統計表の検索、メタ情報、統計データの取得、NEXT_KEY のページング、欠損・秘匿記号の扱い）。 | MIT | v1.0.0 |
+| [`lean-browser-ops`](skills/lean-browser-ops) | Claude Code の Chrome 連携（Claude in Chrome。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 
