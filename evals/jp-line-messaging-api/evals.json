@@ -1,0 +1,322 @@
+{
+ "skill_name": "jp-line-messaging-api",
+ "evals": [
+  {
+   "id": 1,
+   "name": "bot-code-flask",
+   "prompt": "LINE Bot の Webhook を受けて、ユーザーが送ったテキストをそのままオウム返しする Flask のコードを書いて。チャネルシークレットとアクセストークンは自分で用意する。",
+   "files": [],
+   "checks": [
+    {
+     "text": "x-line-signature ヘッダーを読む",
+     "type": "regex",
+     "value": "[xX]-[lL]ine-[sS]ignature"
+    },
+    {
+     "text": "HMAC-SHA256 で検証する",
+     "type": "regex",
+     "value": "(HMAC|hmac)[\\s\\S]*(SHA|sha)-?256|(SHA|sha)-?256[\\s\\S]*(HMAC|hmac)"
+    },
+    {
+     "text": "Base64 にして比較する",
+     "type": "regex",
+     "value": "b64encode|[Bb]ase64|BASE64"
+    },
+    {
+     "text": "パース前の生のボディで検証する（get_data / request.data）",
+     "type": "regex",
+     "value": "get_data|request\\.data"
+    },
+    {
+     "text": "不一致は 400 などで拒否する",
+     "type": "regex",
+     "value": "400|abort"
+    },
+    {
+     "text": "replyToken で reply API に返す",
+     "type": "regex",
+     "value": "replyToken[\\s\\S]*(message/reply|/reply)|(message/reply|/reply)[\\s\\S]*replyToken"
+    },
+    {
+     "text": "シークレット・トークンを環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|os\\.getenv|getenv"
+    },
+    {
+     "text": "実アカウントで動かしていない旨か、動作確認の手順を書く",
+     "type": "regex",
+     "value": "未確認|確認(の)?手順|Verify|検証ボタン|動作確認"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "express-signature-mismatch",
+   "prompt": "Express で LINE の Webhook を受けているんだけど、署名検証が毎回失敗する。こう書いてる:\n\napp.use(express.json());\napp.post('/webhook', (req, res) => {\n  const sig = crypto.createHmac('sha256', process.env.LINE_CHANNEL_SECRET).update(JSON.stringify(req.body)).digest('base64');\n  if (sig !== req.headers['x-line-signature']) return res.sendStatus(400);\n  ...\n});\n\nシークレットは合ってるはず。何が悪い？",
+   "files": [],
+   "checks": [
+    {
+     "text": "JSON.stringify で作り直したボディが原因だと指摘する",
+     "type": "regex",
+     "value": "JSON\\.stringify[\\s\\S]*(一致しない|異なる|別物|合わない|変わ)|(再生成|再シリアライズ|作り直)"
+    },
+    {
+     "text": "生のボディ（Buffer / raw）で検証するよう直す",
+     "type": "regex",
+     "value": "express\\.raw|rawBody|生の(ボディ|リクエスト)|Buffer"
+    },
+    {
+     "text": "検証をパースより先にする",
+     "type": "regex",
+     "value": "(パース|JSON\\.parse)[\\s\\S]*(前|先|後)|(前|先)[\\s\\S]*(パース|JSON\\.parse)"
+    },
+    {
+     "text": "定数時間の比較（timingSafeEqual）を使う",
+     "type": "contains",
+     "value": "timingSafeEqual"
+    },
+    {
+     "text": "express.json() を webhook ルートに適用しない",
+     "type": "regex",
+     "value": "express\\.json\\(\\)[\\s\\S]*(使わない|外す|適用しない|避け|前に|webhook)"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "reply-vs-push-token",
+   "prompt": "LINE の reply と push の違いを教えて。replyToken っていつまで使えるの？ あと reply は何件まとめて送れる？ 通数に数えられる？",
+   "files": [],
+   "checks": [
+    {
+     "text": "replyToken は1回限り",
+     "type": "regex",
+     "value": "1回(限り|だけ|しか)|一度(だけ|しか)|使い回(せ|し)ない|再利用でき"
+    },
+    {
+     "text": "受信から約1分",
+     "type": "regex",
+     "value": "1分|60秒|一分"
+    },
+    {
+     "text": "1リクエスト最大5件",
+     "type": "regex",
+     "value": "(最大|上限)[^。\\n]{0,10}5\\s*(件|つ|メッセージ|個)|5\\s*(件|つ|個)[^。\\n]{0,10}(まで|上限|最大)"
+    },
+    {
+     "text": "reply は通数に数えられず push は数えられる",
+     "type": "regex",
+     "value": "reply[\\s\\S]{0,80}(数えられ(ない|ず)|カウントされ(ない|ず)|含まれ(ない|ず)|無料)"
+    },
+    {
+     "text": "確認日か公式での再確認に触れる",
+     "type": "regex",
+     "value": "公式|確認日|developers\\.line\\.biz"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "line-notify-replacement",
+   "prompt": "自宅サーバーの障害通知を LINE Notify で自分の LINE に送っていたんだけど、急に届かなくなった。代わりにどうすればいい？",
+   "files": [],
+   "checks": [
+    {
+     "text": "LINE Notify は 2025年3月31日に終了したと伝える",
+     "type": "regex",
+     "value": "2025年3月31日|2025-03-31|2025/03/31|2025/3/31|March 31, 2025"
+    },
+    {
+     "text": "Messaging API を代替として示す",
+     "type": "contains",
+     "value": "Messaging API"
+    },
+    {
+     "text": "自分の userId を取る手順に触れる",
+     "type": "regex",
+     "value": "userId|ユーザー ?ID"
+    },
+    {
+     "text": "push（プッシュ）で送る",
+     "type": "regex",
+     "value": "push|プッシュ"
+    },
+    {
+     "text": "公式アカウントを友だち追加する",
+     "type": "contains",
+     "value": "友だち"
+    },
+    {
+     "text": "無料枠（月200通など）か公式での確認に触れる",
+     "type": "regex",
+     "value": "200通|200 通|無料|公式"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "free-quota-calc",
+   "prompt": "LINE公式アカウントで、友だち300人に毎週月曜日に1回、お知らせを配信したい（1回の配信に吹き出しを3つ入れる）。1か月は4週で考えて、無料で収まるプランはどれ？ 通数も計算して。",
+   "files": [],
+   "checks": [
+    {
+     "text": "通数 1,200 通を出す（300人×4回。吹き出し数では増えない）",
+     "type": "regex",
+     "value": "1,?200\\s*通"
+    },
+    {
+     "text": "コミュニケーションプラン（200通）では足りないと示す",
+     "type": "regex",
+     "value": "コミュニケーション[\\s\\S]{0,60}(足りない|超え|収まらない|不足|不可)|200\\s*通[\\s\\S]{0,40}(超え|足りない|不足)"
+    },
+    {
+     "text": "ライトプラン（5,000通・月額5,000円）を選ぶ",
+     "type": "regex",
+     "value": "ライト[\\s\\S]{0,80}5,?000"
+    },
+    {
+     "text": "月額固定費がかかる（無料ではない）ことに触れる",
+     "type": "regex",
+     "value": "5,?000円|月額"
+    },
+    {
+     "text": "公式で現行の料金を確認するよう添える",
+     "type": "regex",
+     "value": "公式|確認日|lycbiz"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "secret-pasted-in-prompt",
+   "prompt": "LINE Bot のコードを書いて。受信した webhook に署名検証をして、テキストに返信するもの。言語は Node.js。\nチャネルシークレットは a1b2c3d4e5f60718293a4b5c6d7e8f90、アクセストークンは FAKE_TOKEN_abc123XYZ_dummy です。これをコードに入れて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "チャネルシークレットをコードに書かない",
+     "type": "not_contains",
+     "value": "a1b2c3d4e5f60718293a4b5c6d7e8f90"
+    },
+    {
+     "text": "アクセストークンをコードに書かない",
+     "type": "not_contains",
+     "value": "FAKE_TOKEN_abc123XYZ_dummy"
+    },
+    {
+     "text": "環境変数から読む形にする",
+     "type": "regex",
+     "value": "process\\.env"
+    },
+    {
+     "text": "貼った鍵は再発行・無効化するよう勧める",
+     "type": "regex",
+     "value": "再発行|発行し直|無効|漏え|漏洩|貼らない|共有しない"
+    },
+    {
+     "text": "署名検証を入れる",
+     "type": "regex",
+     "value": "createHmac|HMAC"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "extra-message-price-trap",
+   "prompt": "スタンダードプランで月に 40,000 通送ったら、請求はいくらになる？ 追加メッセージの単価は1通いくら？ 税込の合計を1つの数字で出して。",
+   "files": [],
+   "checks": [
+    {
+     "text": "無料枠30,000通を超える追加分 10,000通を出す",
+     "type": "regex",
+     "value": "10,?000\\s*通"
+    },
+    {
+     "text": "固定費 15,000円（税別）を示す",
+     "type": "regex",
+     "value": "15,?000\\s*円"
+    },
+    {
+     "text": "追加メッセージの単価は配信数で異なる／改定があると伝える",
+     "type": "regex",
+     "value": "配信数|改定|変わ|異なる|段階"
+    },
+    {
+     "text": "単価は公式の表で確認するよう案内し、1つの数字に断定しない",
+     "type": "regex",
+     "value": "公式|単価表|lycbiz|確認"
+    },
+    {
+     "text": "税別／税込の区別に触れる",
+     "type": "regex",
+     "value": "税別|税込"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "text-limit-long",
+   "prompt": "6,500文字くらいの長い案内文を、LINE の push で1通のテキストメッセージにして送りたい。絵文字もけっこう入ってる。できる？ 注意点は？",
+   "files": [],
+   "checks": [
+    {
+     "text": "テキストの上限 5000 文字",
+     "type": "regex",
+     "value": "5,?000"
+    },
+    {
+     "text": "1メッセージには入らないので分割する",
+     "type": "regex",
+     "value": "分割|分けて|複数(の)?メッセージ|2件|2つ"
+    },
+    {
+     "text": "絵文字は UTF-16 のコードユニットで数える（2文字分）",
+     "type": "regex",
+     "value": "UTF-16|サロゲート|2文字"
+    },
+    {
+     "text": "1リクエスト最大5件に触れる",
+     "type": "regex",
+     "value": "5\\s*(件|つ|個)"
+    },
+    {
+     "text": "push は通数に数えられる",
+     "type": "regex",
+     "value": "通数|無料枠|カウント"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "signature-mismatch-no-data",
+   "prompt": "LINE の署名検証が合わないんだけど、直して。",
+   "files": [],
+   "checks": [
+    {
+     "text": "素材が無いので、ボディ・ヘッダー・使っているコードなどを尋ねる",
+     "type": "regex",
+     "value": "見せて|貼って|教えて|共有|提示|ください|ご提供|確認させ"
+    },
+    {
+     "text": "原因の候補として生のボディ／パース前を挙げる",
+     "type": "regex",
+     "value": "生の|パース|deserial|JSON\\.parse|json\\.loads|再シリアライズ"
+    },
+    {
+     "text": "チャネルシークレットの取り違え・再発行を挙げる",
+     "type": "regex",
+     "value": "別(の)?チャネル|再発行|チャネルシークレット"
+    },
+    {
+     "text": "HMAC-SHA256 と Base64 を挙げる",
+     "type": "regex",
+     "value": "(SHA|sha)-?256[\\s\\S]*([Bb]ase64|BASE64)|([Bb]ase64|BASE64)[\\s\\S]*(SHA|sha)-?256"
+    },
+    {
+     "text": "シークレットそのものは貼らないよう注意する",
+     "type": "regex",
+     "value": "シークレット[^。\\n]*(貼らない|貼り付けない|共有しない|伏せ)|伏せ|マスク"
+    }
+   ]
+  }
+ ]
+}

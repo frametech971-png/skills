@@ -1,0 +1,101 @@
+{
+ "skill_name": "jp-line-messaging-api",
+ "queries": [
+  {
+   "q": "LINE Bot の Webhook を受けて返信するコードを書いて",
+   "trigger": true
+  },
+  {
+   "q": "x-line-signature の検証がどうしても合わない",
+   "trigger": true
+  },
+  {
+   "q": "LINE の reply と push の違いと、replyToken の期限を教えて",
+   "trigger": true
+  },
+  {
+   "q": "LINE Notify が終わったので、代わりに通知を送りたい",
+   "trigger": true
+  },
+  {
+   "q": "LINE公式アカウントで無料で送れるメッセージの通数は？",
+   "trigger": true
+  },
+  {
+   "q": "Messaging API で push メッセージが 429 になる。原因は？",
+   "trigger": true
+  },
+  {
+   "q": "LINE公式アカウントから、ユーザーの userId を取って自分に通知を飛ばしたい",
+   "trigger": true
+  },
+  {
+   "q": "LINE の Webhook 署名を Python で検証する関数を書いて。Base64 のところが不安",
+   "trigger": true
+  },
+  {
+   "q": "Write a LINE Messaging API webhook handler in Node.js that verifies the x-line-signature header",
+   "trigger": true
+  },
+  {
+   "q": "What's the free message quota on a LINE Official Account, and how are push messages counted?",
+   "trigger": true
+  },
+  {
+   "q": "LINE Notify alternative: how do I push a notification to myself with the Messaging API?",
+   "trigger": true
+  },
+  {
+   "q": "LINE Bot の replyToken が Invalid reply token になる",
+   "trigger": true
+  },
+  {
+   "q": "LINEのリッチメニュー用の画像をデザインして",
+   "trigger": false
+  },
+  {
+   "q": "LINE ミニアプリを LIFF で作りたい。liff.init の使い方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "Slack の Incoming Webhook で通知を送るコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Discord Bot でメッセージに返信するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Telegram Bot の webhook を設定して",
+   "trigger": false
+  },
+  {
+   "q": "kintone の REST API でレコードを取得するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場の商品を検索して価格を比較して",
+   "trigger": false
+  },
+  {
+   "q": "LINE で友だちに送るお詫びのメールではなく、社内向けの障害報告を書いて",
+   "trigger": false
+  },
+  {
+   "q": "このメール配信シナリオを特定電子メール法に沿って作って",
+   "trigger": false
+  },
+  {
+   "q": "Webアプリのセキュリティ監査をして。XSS や CSRF を見てほしい",
+   "trigger": false
+  },
+  {
+   "q": "LINE のスタンプ用イラストの描き方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "HMAC-SHA256 の仕組みを一般的に解説して（LINE とは関係なく）",
+   "trigger": false
+  }
+ ]
+}

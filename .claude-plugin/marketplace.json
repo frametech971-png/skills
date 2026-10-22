@@ -52,6 +52,15 @@
       "skills": [
         "./skills/jp-email-sequence"
       ]
+    },
+    {
+      "name": "jp-line-messaging-api",
+      "description": "LINE公式アカウントの Messaging API を使う Bot・通知のコードを書き、Webhook の署名検証・reply/push・メッセージ上限・エラー・料金プランの原因を調べる。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-line-messaging-api"
+      ]
     }
   ]
 }
