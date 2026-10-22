@@ -1,0 +1,113 @@
+{
+ "skill_name": "jp-zengin-format",
+ "queries": [
+  {
+   "q": "振込データを全銀フォーマットで作って",
+   "trigger": true
+  },
+  {
+   "q": "このファイルの桁数が合っているか検証して。全銀フォーマットの総合振込です",
+   "trigger": true
+  },
+  {
+   "q": "全銀フォーマットの受取人名を半角カナに変換して（濁点・小文字の扱いも）",
+   "trigger": true
+  },
+  {
+   "q": "全銀フォーマットのトレーラの合計が合わないと銀行に言われた",
+   "trigger": true
+  },
+  {
+   "q": "給与振込の全銀ファイルを CSV から作りたい",
+   "trigger": true
+  },
+  {
+   "q": "総合振込のデータレコードの桁数と新規コードの意味を教えて",
+   "trigger": true
+  },
+  {
+   "q": "120バイト固定長の振込ファイルのヘッダーレコードの作り方は？",
+   "trigger": true
+  },
+  {
+   "q": "賞与振込のファイルを全銀協規定形式で出力して",
+   "trigger": true
+  },
+  {
+   "q": "Create a Zengin format bulk transfer file (120 bytes fixed length) from this CSV",
+   "trigger": true
+  },
+  {
+   "q": "Validate my Zengin payroll transfer file: header, data, trailer and end records",
+   "trigger": true
+  },
+  {
+   "q": "総合振込ファイルの取り込みでレコード長エラーになった。原因を調べて",
+   "trigger": true
+  },
+  {
+   "q": "振込依頼人名に使える文字と、小文字カナの直し方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "請求書の登録番号とインボイスの記載要件をチェックして",
+   "trigger": false
+  },
+  {
+   "q": "freee API で取引を登録するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "kintone のレコードを CSV から一括登録するスクリプトを書いて",
+   "trigger": false
+  },
+  {
+   "q": "銀行口座の入出金明細 CSV を freee 用に整形して",
+   "trigger": false
+  },
+  {
+   "q": "住所や社名の表記ゆれを正規化して",
+   "trigger": false
+  },
+  {
+   "q": "口座振替の依頼書（自動引落）のフォーマットを作って",
+   "trigger": false
+  },
+  {
+   "q": "この口座番号が実在するか銀行に問い合わせて確認して",
+   "trigger": false
+  },
+  {
+   "q": "SWIFT の国際送金データ（MT103）を作って",
+   "trigger": false
+  },
+  {
+   "q": "源泉徴収税の計算と年末調整の判断をして",
+   "trigger": false
+  },
+  {
+   "q": "営業日だけで納期を計算して。祝日も除いて",
+   "trigger": false
+  },
+  {
+   "q": "給与計算ソフトの設定方法を教えて",
+   "trigger": false
+  },
+  {
+   "q": "インターネットバンキングにファイルを自動でアップロードして",
+   "trigger": false
+  },
+  {
+   "q": "Stripe の返金 API を呼ぶコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "売上の仕訳を勘定科目に振り分けて",
+   "trigger": false
+  },
+  {
+   "q": "個人情報保護方針の文面をチェックして",
+   "trigger": false
+  }
+ ]
+}

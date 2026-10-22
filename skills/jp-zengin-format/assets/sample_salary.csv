@@ -1,0 +1,3 @@
+bank_no,branch_no,account_type,account_no,name,amount,new_code,employee_no,dept_code
+9999,001,1,0000011,テスト タロウ,250000,0,1,10
+9999,001,1,0000012,テスト ハナコ,300000,0,2,10
