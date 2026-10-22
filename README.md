@@ -12,6 +12,7 @@
 | [`jp-web-security-audit`](skills/jp-web-security-audit) | コード・API・サービスのセキュリティを、防御側の立場でソースから監査する。 | MIT | v1.0.0 |
 | [`jp-email-sequence`](skills/jp-email-sequence) | ウェルカム・育成・再エンゲージメント・購入後などのステップメール（メールシーケンス、ドリップ、ライフサイクルメール）を設計して文面まで作る。 | MIT | v1.0.0 |
 | [`jp-line-messaging-api`](skills/jp-line-messaging-api) | LINE公式アカウントの Messaging API を使う Bot・通知のコードを書き、Webhook の署名検証・reply/push・メッセージ上限・エラー・料金プランの原因を調べる。 | MIT | v1.0.0 |
+| [`jp-kintone-api`](skills/jp-kintone-api) | kintone の REST API でレコードを取得・登録・更新するコードを書き、クエリ構文・件数制限・認証・エラーの原因を調べる。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 

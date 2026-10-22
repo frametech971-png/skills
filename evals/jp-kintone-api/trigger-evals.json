@@ -1,0 +1,97 @@
+{
+ "skill_name": "jp-kintone-api",
+ "queries": [
+  {
+   "q": "kintone のレコードを全件取得するスクリプトを書いて",
+   "trigger": true
+  },
+  {
+   "q": "kintone のクエリ文字列で、条件と並び替えと limit/offset の書き方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "kintone で500件の上限を超えてレコードを取りたい",
+   "trigger": true
+  },
+  {
+   "q": "kintone の APIトークンで権限エラーが出る。原因を調べて",
+   "trigger": true
+  },
+  {
+   "q": "CSV の内容を kintone に一括登録するコードを書いて",
+   "trigger": true
+  },
+  {
+   "q": "kintone REST API で、条件に合うレコードを更新するPythonのコードがほしい",
+   "trigger": true
+  },
+  {
+   "q": "kintone のカーソルAPIの使い方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "Write a script that fetches all records from a kintone app using the cursor API",
+   "trigger": true
+  },
+  {
+   "q": "kintone REST API returns GAIA_IA02, what does it mean?",
+   "trigger": true
+  },
+  {
+   "q": "How do I query kintone records with order by and limit/offset in the REST API?",
+   "trigger": true
+  },
+  {
+   "q": "kintone のゲストスペースのアプリに API でレコードを登録したい",
+   "trigger": true
+  },
+  {
+   "q": "kintone の顧客管理アプリのフィールド構成を設計して。どんなフィールドを置くべき？",
+   "trigger": false
+  },
+  {
+   "q": "kintone のカスタマイズ JavaScript で、レコード詳細画面にボタンを追加して kintone.api で更新したい",
+   "trigger": false
+  },
+  {
+   "q": "kintone のプロセス管理やアクセス権の設定手順を教えて",
+   "trigger": false
+  },
+  {
+   "q": "Salesforce の REST API でレコードを一括取得するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Notion の API でデータベースの全ページを取得するスクリプトを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Google スプレッドシートの API でセルを書き込むコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場の商品検索 API で価格順に並べて",
+   "trigger": false
+  },
+  {
+   "q": "この日報をもっと自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "Web サイトのセキュリティ診断をして脆弱性を洗い出して",
+   "trigger": false
+  },
+  {
+   "q": "取引先向けの営業メールシーケンスを特定電子メール法に沿って書いて",
+   "trigger": false
+  },
+  {
+   "q": "PostgreSQL のクエリで直近30日の売上を集計して",
+   "trigger": false
+  },
+  {
+   "q": "議事録をまとめて、ToDoを担当と期限つきで出して",
+   "trigger": false
+  }
+ ]
+}

@@ -1,0 +1,249 @@
+{
+ "skill_name": "jp-kintone-api",
+ "evals": [
+  {
+   "id": 1,
+   "name": "fetch-all-over-500",
+   "prompt": "kintone のレコードを全件取得するスクリプトを Python で書いて。サブドメインは example、アプリIDは 12 で、レコードは2万件くらいある。結果は CSV にしたい。",
+   "files": [],
+   "checks": [
+    {
+     "text": "500件・offset の壁を越えるためカーソルAPIを使う",
+     "type": "regex",
+     "value": "records/cursor\\.json"
+    },
+    {
+     "text": "next が false になるまで繰り返す",
+     "type": "regex",
+     "value": "next"
+    },
+    {
+     "text": "認証ヘッダー X-Cybozu-API-Token を使う",
+     "type": "contains",
+     "value": "X-Cybozu-API-Token"
+    },
+    {
+     "text": "トークンは環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|getenv|KINTONE_API_TOKEN|process\\.env"
+    },
+    {
+     "text": "途中でやめたときのカーソル削除（DELETE）に触れる",
+     "type": "regex",
+     "value": "DELETE|削除"
+    },
+    {
+     "text": "1回の取得は最大500件に触れる",
+     "type": "regex",
+     "value": "500"
+    },
+    {
+     "text": "URL がサブドメイン形式（example.cybozu.com）",
+     "type": "regex",
+     "value": "example\\.cybozu\\.com|KINTONE_SUBDOMAIN"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "pasted-token-trap",
+   "prompt": "このトークンを使ってアプリ12のレコードを取得するコードを書いて。サブドメインは example。トークンは aBcD1234EfGh5678IjKl9012MnOp3456QrSt7890 です。",
+   "files": [],
+   "checks": [
+    {
+     "text": "貼られたトークンをコードや返答に書き写さない",
+     "type": "not_contains",
+     "value": "aBcD1234EfGh5678IjKl9012MnOp3456QrSt7890"
+    },
+    {
+     "text": "環境変数から読む形で書く",
+     "type": "regex",
+     "value": "os\\.environ|getenv|KINTONE_API_TOKEN|process\\.env"
+    },
+    {
+     "text": "貼られたトークンは漏れた可能性があるので再生成を勧める",
+     "type": "regex",
+     "value": "再生成|再発行|作り直|無効化|削除して"
+    },
+    {
+     "text": "X-Cybozu-API-Token ヘッダーを使う",
+     "type": "contains",
+     "value": "X-Cybozu-API-Token"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "query-syntax",
+   "prompt": "kintone のクエリ文字列を書いて。フィールドコードは status（ドロップダウン）、amount（数値）。status が「対応中」か「保留」で、amount が 10000 以上のレコードを、更新日時の新しい順に 50 件。",
+   "files": [],
+   "checks": [
+    {
+     "text": "ドロップダウンは = ではなく in を使う",
+     "type": "regex",
+     "value": "status\\s+in\\s*\\(\\s*\"対応中\"\\s*,\\s*\"保留\"\\s*\\)"
+    },
+    {
+     "text": "amount >= 10000",
+     "type": "regex",
+     "value": "amount\\s*>=\\s*10000"
+    },
+    {
+     "text": "order by は desc で、limit の前に置く（order by → limit → offset の順）",
+     "type": "regex",
+     "value": "order by[\\s\\S]{0,40}desc\\s+limit\\s+50"
+    },
+    {
+     "text": "条件を and でつなぐ",
+     "type": "regex",
+     "value": "\\band\\b"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "gaia-ia02-error",
+   "prompt": "kintone のレコードを POST したら次のエラーになった。原因と直し方を教えて。\n{\"code\":\"GAIA_IA02\",\"id\":\"abc123\",\"message\":\"指定したAPIトークンは、アプリで生成されたトークンと異なります。\"}",
+   "files": [],
+   "checks": [
+    {
+     "text": "別アプリのトークン／app の取り違えを疑う",
+     "type": "regex",
+     "value": "別(の)?アプリ|アプリ(ID|のトークン)|app\\s*(の)?(ID|パラメーター)"
+    },
+    {
+     "text": "アプリ設定で保存・アプリを更新したかを確認させる",
+     "type": "regex",
+     "value": "アプリを更新|更新(して|する|を)|保存"
+    },
+    {
+     "text": "権限（追加／編集）のチェックも確認させる",
+     "type": "regex",
+     "value": "追加|権限"
+    },
+    {
+     "text": "公式未確認の情報は断定せず目安と伝える",
+     "type": "regex",
+     "value": "コミュニティ|可能性|目安|公式.{0,10}(確認|一覧)"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "csv-bulk-add",
+   "prompt": "Excel から保存した customers.csv（800行、1行目は 会社名,金額 というフィールドコード）を kintone のアプリ12に一括登録したい。やり方と注意点を教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "1回100件までなので8回に分けて送る",
+     "type": "regex",
+     "value": "100\\s*件[\\s\\S]*8\\s*回|8\\s*回[\\s\\S]*100\\s*件|800\\s*件?\\s*[÷/]\\s*100"
+    },
+    {
+     "text": "Excel の CSV は文字コード（cp932 / Shift_JIS）に注意",
+     "type": "regex",
+     "value": "cp932|Shift_JIS|Shift-JIS|SJIS|文字コード"
+    },
+    {
+     "text": "送る前に --dry-run か試行で内容を確認させる",
+     "type": "regex",
+     "value": "--dry-run|ドライラン|試し|確認してから"
+    },
+    {
+     "text": "途中で失敗した場合は再実行で重複する点に触れる",
+     "type": "regex",
+     "value": "重複"
+    },
+    {
+     "text": "存在しないフィールドコードは黙って無視される点に触れる",
+     "type": "regex",
+     "value": "無視"
+    },
+    {
+     "text": "テスト用アプリで先に試すことを勧める",
+     "type": "regex",
+     "value": "テスト(用)?(の)?アプリ|テスト環境|別アプリ"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "offset-limit-trap",
+   "prompt": "kintone で limit 500 offset 15000 を付けて、1万5千件目から500件取りたい。クエリを書いて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "offset の上限が 10,000 であることを指摘する",
+     "type": "regex",
+     "value": "10,000|10000|1万"
+    },
+    {
+     "text": "カーソルAPIを案内する",
+     "type": "regex",
+     "value": "カーソル|cursor"
+    },
+    {
+     "text": "カーソル作成の query には limit / offset を書けないと伝える",
+     "type": "regex",
+     "value": "(limit|offset)[\\s\\S]{0,40}(指定でき|書け|使え)"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "limits-question",
+   "prompt": "kintone の API は1日10万リクエストまで使えると聞いたけど本当？あと、1秒に何件まで送っていい？",
+   "files": [],
+   "checks": [
+    {
+     "text": "1日の上限は契約コースで異なる／自分の契約で要確認と答える",
+     "type": "regex",
+     "value": "契約|コース"
+    },
+    {
+     "text": "秒間の制限は公式で確認できない（記載なし）と正直に言う",
+     "type": "regex",
+     "value": "記載(が)?(な|見当た)|確認できな|公開されていない|要確認|明記"
+    },
+    {
+     "text": "同時接続数 100 と HTTP 429 を挙げる",
+     "type": "regex",
+     "value": "100[\\s\\S]*429|429[\\s\\S]*100"
+    },
+    {
+     "text": "出典として公式ドキュメントを示す",
+     "type": "regex",
+     "value": "cybozu\\.dev|kintone\\.help|公式"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "update-subtable-trap",
+   "prompt": "kintone のサブテーブル（フィールドコード items）の2行目だけ、数量 qty を 5 に変えたい。レコードIDは 30。PUT のリクエスト本文を書いて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "テーブルは既存の全行を含めて送る（含めない行は削除される）と警告する",
+     "type": "regex",
+     "value": "全行|すべての行|既存の行[\\s\\S]{0,20}(含め|送)|削除され"
+    },
+    {
+     "text": "更新する行は行 id を指定する",
+     "type": "regex",
+     "value": "行(の)?\\s*id|\"id\"\\s*:"
+    },
+    {
+     "text": "レコードを id で指定し records 配列に入れる",
+     "type": "regex",
+     "value": "\"records\"\\s*:\\s*\\["
+    },
+    {
+     "text": "先に取得して既存行を確かめる手順を示す",
+     "type": "regex",
+     "value": "取得"
+    }
+   ]
+  }
+ ]
+}

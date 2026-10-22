@@ -61,6 +61,15 @@
       "skills": [
         "./skills/jp-line-messaging-api"
       ]
+    },
+    {
+      "name": "jp-kintone-api",
+      "description": "kintone の REST API でレコードを取得・登録・更新するコードを書き、クエリ構文・件数制限・認証・エラーの原因を調べる。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-kintone-api"
+      ]
     }
   ]
 }
