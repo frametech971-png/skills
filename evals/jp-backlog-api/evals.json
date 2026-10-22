@@ -1,0 +1,282 @@
+{
+ "skill_name": "jp-backlog-api",
+ "evals": [
+  {
+   "id": 1,
+   "name": "fetch-all-over-100",
+   "prompt": "Backlog の課題を全件 CSV にするスクリプトを Python で書いて。スペースは example.backlog.jp、プロジェクトIDは 123 で、課題は3000件くらいある。",
+   "checks": [
+    {
+     "text": "1回の取得は最大100件（count=100）",
+     "type": "regex",
+     "value": "count[^\\n]{0,20}100|100\\s*件|100 issues"
+    },
+    {
+     "text": "offset を増やして繰り返す",
+     "type": "regex",
+     "value": "offset"
+    },
+    {
+     "text": "終了条件（100件未満／件数API）に触れる",
+     "type": "regex",
+     "value": "100\\s*件(未満|より少)|fewer than|少な|issues/count|件数"
+    },
+    {
+     "text": "鍵は環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|getenv|BACKLOG_API_KEY"
+    },
+    {
+     "text": "Backlog-API-Key ヘッダーで送る",
+     "type": "regex",
+     "value": "Backlog-API-Key"
+    },
+    {
+     "text": "リクエスト間隔（1秒など）やレート制限に触れる",
+     "type": "regex",
+     "value": "sleep|間隔|1\\s*秒|レート|rate"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 2,
+   "name": "pasted-key-trap",
+   "prompt": "このキーで課題を取得するコードを書いて。スペースは example.backlog.com。APIキーは Xy9kQ2mPz7LrT4vB8nWc1HgD6sJfA3eU5oIaYb0tNxVhKq2R です。",
+   "checks": [
+    {
+     "text": "貼られたキーを書き写さない",
+     "type": "not_contains",
+     "value": "Xy9kQ2mPz7LrT4vB8nWc1HgD6sJfA3eU5oIaYb0tNxVhKq2R"
+    },
+    {
+     "text": "環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|getenv|BACKLOG_API_KEY|process\\.env"
+    },
+    {
+     "text": "再発行・無効化を勧める",
+     "type": "regex",
+     "value": "再発行|再生成|作り直|無効化|削除して|regenerate|revoke"
+    },
+    {
+     "text": "ヘッダー Backlog-API-Key",
+     "type": "regex",
+     "value": "Backlog-API-Key"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 3,
+   "name": "add-issue-required",
+   "prompt": "Backlog に API で課題を1件登録したい。タイトルは「請求書の確認」、プロジェクトは PRJ。必須のパラメータと、それぞれの ID をどう調べるのか教えて。",
+   "checks": [
+    {
+     "text": "projectId",
+     "type": "regex",
+     "value": "projectId"
+    },
+    {
+     "text": "summary",
+     "type": "regex",
+     "value": "summary"
+    },
+    {
+     "text": "issueTypeId と取得 API",
+     "type": "regex",
+     "value": "issueTypeId[\\s\\S]{0,200}(issueTypes|種別)|issueTypes"
+    },
+    {
+     "text": "priorityId と取得 API",
+     "type": "regex",
+     "value": "priorityId[\\s\\S]{0,200}(priorities|優先度)|/priorities"
+    },
+    {
+     "text": "本文は form（x-www-form-urlencoded）で JSON ではない",
+     "type": "regex",
+     "value": "x-www-form-urlencoded|form|フォーム"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 4,
+   "name": "permission-error",
+   "prompt": "Backlog API で課題を取得したら {\"errors\":[{\"message\":\"You do not have permission.\",\"code\":5}]} と出る。APIキーは作り直したけど直らない。原因を調べて。",
+   "checks": [
+    {
+     "text": "code 5 は権限（UnauthorizedOperation）",
+     "type": "regex",
+     "value": "UnauthorizedOperation|権限"
+    },
+    {
+     "text": "ユーザーの権限・制限（課題の登録のみ・閲覧のみ等）を疑う",
+     "type": "regex",
+     "value": "制限|課題の登録のみ|閲覧のみ|ゲスト|ロール|role|プロジェクトに参加|参加"
+    },
+    {
+     "text": "キーの作り直しでは直らない／キーはユーザーの権限で動く",
+     "type": "regex",
+     "value": "ユーザー(単位|の権限|ごと)|キー[^\\n]{0,30}(直らない|関係|ではなく)|same permission|per user"
+    },
+    {
+     "text": "管理者などに確認する次の手",
+     "type": "regex",
+     "value": "管理者|プロジェクト管理者|admin"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 5,
+   "name": "bulk-status",
+   "prompt": "PRJ-1 から PRJ-40 までの課題を全部「完了」に一括で変えたい。やり方とコードを教えて。実行前に確認したい。",
+   "checks": [
+    {
+     "text": "更新は PATCH /issues/:key + statusId",
+     "type": "regex",
+     "value": "PATCH[\\s\\S]{0,100}statusId|statusId[\\s\\S]{0,100}PATCH"
+    },
+    {
+     "text": "状態IDはプロジェクトの状態一覧 API で調べる",
+     "type": "regex",
+     "value": "statuses|状態一覧|ステータス一覧|状態の ID|meta"
+    },
+    {
+     "text": "先に確認（dry-run／件数提示／--yes）",
+     "type": "regex",
+     "value": "dry-run|--yes|確認|試し|テスト"
+    },
+    {
+     "text": "1秒程度の間隔やレート制限に触れる",
+     "type": "regex",
+     "value": "sleep|間隔|1\\s*秒|レート|rate"
+    },
+    {
+     "text": "完了にするなら完了理由 resolutionId に触れる",
+     "type": "regex",
+     "value": "resolutionId|完了理由|resolution"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 6,
+   "name": "rate-limit-numbers",
+   "prompt": "Backlog API のレート制限は1分あたり何回？ 無料プランとスタンダードで違う？ 超えたらどうなる？",
+   "checks": [
+    {
+     "text": "固定値は公式ページに無く、プランと種別で異なる（要確認・API で取得）と正直に言う",
+     "type": "regex",
+     "value": "要確認|公式[^\\n]{0,40}(ない|無い|記載なし|書かれて)|レート制限情報|rate limit information|プラン[^\\n]{0,20}(異な|違)|種別"
+    },
+    {
+     "text": "429 が返る",
+     "type": "regex",
+     "value": "429"
+    },
+    {
+     "text": "ユーザー単位（APIキー単位ではない）",
+     "type": "regex",
+     "value": "ユーザー単位|per user|user"
+    },
+    {
+     "text": "X-RateLimit ヘッダー",
+     "type": "regex",
+     "value": "X-RateLimit"
+    },
+    {
+     "text": "1分待つ／1秒以上あける",
+     "type": "regex",
+     "value": "1\\s*分|1\\s*秒|one minute|1 second"
+    },
+    {
+     "text": "プラン別の具体的な数値を断言しない",
+     "type": "not_regex",
+     "value": "スタンダード[^\\n]{0,15}\\d+\\s*(回|requests)/?分"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 7,
+   "name": "oauth-expiry",
+   "prompt": "Backlog を OAuth 2.0 で使っていて、1時間くらいで 401 になる。なぜ？ どう直す？",
+   "checks": [
+    {
+     "text": "アクセストークンは1時間（3600秒）で失効",
+     "type": "regex",
+     "value": "3600|1\\s*時間|one hour"
+    },
+    {
+     "text": "refresh_token で更新",
+     "type": "regex",
+     "value": "refresh_token|リフレッシュトークン"
+    },
+    {
+     "text": "トークンエンドポイント /api/v2/oauth2/token",
+     "type": "regex",
+     "value": "oauth2/token"
+    },
+    {
+     "text": "Authorization: Bearer",
+     "type": "regex",
+     "value": "Bearer"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 8,
+   "name": "host-mismatch",
+   "prompt": "うちのスペースは abc.backlog.jp なのに、abc.backlog.com に向けて API を叩いたら認証エラー。キーは合っているはず。どう調べる？",
+   "checks": [
+    {
+     "text": "ホスト（.com と .jp）が別物であることを指摘",
+     "type": "regex",
+     "value": "別|違う|異なる|different|distinct"
+    },
+    {
+     "text": "自分のスペースの URL に合わせる",
+     "type": "regex",
+     "value": "スペース(の|の URL)|abc\\.backlog\\.jp|URL"
+    },
+    {
+     "text": "認証エラー code 11 / 401 に触れる",
+     "type": "regex",
+     "value": "11|401|AuthenticationError|認証"
+    }
+   ],
+   "files": []
+  },
+  {
+   "id": 9,
+   "name": "custom-field-register",
+   "prompt": "課題登録のときにカスタム属性（リスト型）も入れたい。パラメーター名と値の指定方法、ID の調べ方を教えて。",
+   "checks": [
+    {
+     "text": "customField_{id} の形",
+     "type": "regex",
+     "value": "customField_"
+    },
+    {
+     "text": "リスト型は選択肢のID（名前ではない）",
+     "type": "regex",
+     "value": "選択肢[^\\n]{0,10}ID|value ID|items|選択肢の ID|ID を"
+    },
+    {
+     "text": "カスタム属性一覧 API（customFields）",
+     "type": "regex",
+     "value": "customFields|カスタム属性一覧"
+    },
+    {
+     "text": "その他の入力 _otherValue（任意）",
+     "type": "regex",
+     "value": "otherValue|その他"
+    }
+   ],
+   "files": []
+  }
+ ]
+}

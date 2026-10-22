@@ -133,6 +133,33 @@
       "skills": [
         "./skills/lean-browser-ops"
       ]
+    },
+    {
+      "name": "jp-backlog-api",
+      "description": "Backlog（ヌーラボ）API v2 で課題の取得・登録・更新・コメント・ステータス変更をするコードを書き、認証・件数制限・エラーの原因を調べる。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-backlog-api"
+      ]
+    },
+    {
+      "name": "jp-nta-corporate-api",
+      "description": "国税庁の法人番号 Web-API（法人名・法人番号での検索、差分取得）と、適格請求書発行事業者公表システム Web-API（登録番号での照会）を呼ぶコードを書き、アプリケーションIDの取り方、件数上限と分割取得、エラーの原因を調べる。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-nta-corporate-api"
+      ]
+    },
+    {
+      "name": "jp-zengin-format",
+      "description": "全銀フォーマット（全国銀行協会の規定形式・固定長120バイトの総合振込／給与振込／賞与振込データ）を作る・検証する。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-zengin-format"
+      ]
     }
   ]
 }

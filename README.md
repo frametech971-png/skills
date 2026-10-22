@@ -20,6 +20,9 @@
 | [`jp-data-normalizer`](skills/jp-data-normalizer) | 日本語の業務データ（名簿・顧客リスト・CSV）の表記ゆれを直す。 | MIT | v1.0.0 |
 | [`jp-estat-api`](skills/jp-estat-api) | 政府統計の総合窓口 e-Stat の API で日本の公的統計を取得し、CSV に整えて出典つきで集計する（統計表の検索、メタ情報、統計データの取得、NEXT_KEY のページング、欠損・秘匿記号の扱い）。 | MIT | v1.0.0 |
 | [`lean-browser-ops`](skills/lean-browser-ops) | Claude Code の Chrome 連携（Claude in Chrome。 | MIT | v1.0.0 |
+| [`jp-backlog-api`](skills/jp-backlog-api) | Backlog（ヌーラボ）API v2 で課題の取得・登録・更新・コメント・ステータス変更をするコードを書き、認証・件数制限・エラーの原因を調べる。 | MIT | v1.0.0 |
+| [`jp-nta-corporate-api`](skills/jp-nta-corporate-api) | 国税庁の法人番号 Web-API（法人名・法人番号での検索、差分取得）と、適格請求書発行事業者公表システム Web-API（登録番号での照会）を呼ぶコードを書き、アプリケーションIDの取り方、件数上限と分割取得、エラーの原因を調べる。 | MIT | v1.0.0 |
+| [`jp-zengin-format`](skills/jp-zengin-format) | 全銀フォーマット（全国銀行協会の規定形式・固定長120バイトの総合振込／給与振込／賞与振込データ）を作る・検証する。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 

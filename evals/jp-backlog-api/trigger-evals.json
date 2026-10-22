@@ -1,0 +1,105 @@
+{
+ "skill_name": "jp-backlog-api",
+ "queries": [
+  {
+   "q": "Backlog の課題を全件 CSV にして",
+   "trigger": true
+  },
+  {
+   "q": "Backlog に API で課題を登録するコードを書いて",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の APIキーで権限エラーが出る。原因を調べて",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の課題のステータスを一括で変えたい",
+   "trigger": true
+  },
+  {
+   "q": "Backlog API で課題一覧が20件しか返ってこない",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の課題にコメントを API で追加したい",
+   "trigger": true
+  },
+  {
+   "q": "Backlog API v2 のレート制限と 429 の対処を教えて",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の課題を条件で絞り込んで取得するコード",
+   "trigger": true
+  },
+  {
+   "q": "Backlog に OAuth 2.0 でアクセスしたい",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の課題登録で必須のパラメータは何？ priorityId はどこで調べる？",
+   "trigger": true
+  },
+  {
+   "q": "Export all issues from Backlog (Nulab) to CSV with the API",
+   "trigger": true
+  },
+  {
+   "q": "Backlog API: update issue status with PATCH and Backlog-API-Key",
+   "trigger": true
+  },
+  {
+   "q": "Backlog の Wiki ページを API で一括更新したい",
+   "trigger": false
+  },
+  {
+   "q": "Backlog の Git リポジトリにプルリクエストを API で作りたい",
+   "trigger": false
+  },
+  {
+   "q": "Jira の課題を REST API で全件取得して",
+   "trigger": false
+  },
+  {
+   "q": "Redmine のチケットを API で登録したい",
+   "trigger": false
+  },
+  {
+   "q": "GitHub Issues をラベルで絞って取得するスクリプトを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Backlog の使い方を初心者向けに説明して。課題管理のコツは？",
+   "trigger": false
+  },
+  {
+   "q": "Backlog のプロジェクト運用ルールの作り方を相談したい",
+   "trigger": false
+  },
+  {
+   "q": "kintone のレコードを全件取得するスクリプトを書いて",
+   "trigger": false
+  },
+  {
+   "q": "Asana のタスクを API で登録したい",
+   "trigger": false
+  },
+  {
+   "q": "Backlog のガントチャートの見方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "Slack に Backlog の通知を飛ばす Webhook の設定を教えて",
+   "trigger": false
+  },
+  {
+   "q": "Notion のデータベースを API で CSV に出力したい",
+   "trigger": false
+  },
+  {
+   "q": "Backlog のプラン料金の違いを比べて",
+   "trigger": false
+  }
+ ]
+}
