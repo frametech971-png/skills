@@ -160,6 +160,15 @@
       "skills": [
         "./skills/jp-zengin-format"
       ]
+    },
+    {
+      "name": "jp-tokushoho-check",
+      "description": "通信販売（EC・デジタル商品・サブスク）の「特定商取引法に基づく表記」と申込み画面を、特定商取引法（11条・12条の6・15条の3ほか）と施行規則の現行条番号に照らして点検し、抜けを「項目／該当条文／現状の記載／指摘／直し方」の表で指摘する。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-tokushoho-check"
+      ]
     }
   ]
 }

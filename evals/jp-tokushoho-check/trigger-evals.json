@@ -1,0 +1,117 @@
+{
+  "skill_name": "jp-tokushoho-check",
+  "queries": [
+    {
+      "q": "うちのECサイトの特商法表記の抜けを確認して",
+      "trigger": true
+    },
+    {
+      "q": "デジタル商品の特商法表記のひな形を作って",
+      "trigger": true
+    },
+    {
+      "q": "特商法表記に「返品不可」と書きたいんだけど、どう書けばいい？",
+      "trigger": true
+    },
+    {
+      "q": "サブスクの解約の書き方を、特定商取引法に沿って教えて",
+      "trigger": true
+    },
+    {
+      "q": "特商法表記に住所を載せたくない。非公開にできる？",
+      "trigger": true
+    },
+    {
+      "q": "特定商取引法に基づく表記のページを点検して、足りない項目を表にして",
+      "trigger": true
+    },
+    {
+      "q": "通販の最終確認画面に何を表示する必要がある？12条の6の観点で見てほしい",
+      "trigger": true
+    },
+    {
+      "q": "電子書籍をダウンロード販売する。特商法の表記項目を教えて",
+      "trigger": true
+    },
+    {
+      "q": "定期購入の申込み画面で、初回無料から自動課金になる場合の表示の注意点は？",
+      "trigger": true
+    },
+    {
+      "q": "BASEで個人事業主として売る。特商法表記の電話番号は必須？",
+      "trigger": true
+    },
+    {
+      "q": "オンライン講座の特商法表記を作りたい。引渡時期は何て書く？",
+      "trigger": true
+    },
+    {
+      "q": "Review my Japanese tokushoho (Act on Specified Commercial Transactions) notice and list the missing items",
+      "trigger": true
+    },
+    {
+      "q": "Draft a Specified Commercial Transactions Act disclosure page for my digital download shop in Japan",
+      "trigger": true
+    },
+    {
+      "q": "特商法の返品特約の表示が最終確認画面にも必要か知りたい",
+      "trigger": true
+    },
+    {
+      "q": "プライバシーポリシーのひな形を作って",
+      "trigger": false
+    },
+    {
+      "q": "個人情報保護法に沿ったプライバシーポリシーの抜けを確認して",
+      "trigger": false
+    },
+    {
+      "q": "メルマガの配信同意の取り方と、特定電子メール法の表示事項を教えて",
+      "trigger": false
+    },
+    {
+      "q": "ステップメールの文面を書いて",
+      "trigger": false
+    },
+    {
+      "q": "二重価格表示が景品表示法に違反しないか見て",
+      "trigger": false
+    },
+    {
+      "q": "利用規約のひな形を作って",
+      "trigger": false
+    },
+    {
+      "q": "請求書がインボイス制度の要件を満たしているか確認して",
+      "trigger": false
+    },
+    {
+      "q": "訪問販売のクーリング・オフ期間と書面の記載事項を教えて",
+      "trigger": false
+    },
+    {
+      "q": "アメリカ向けEC(Shopify)のリファンドポリシーとFTCの要件を教えて",
+      "trigger": false
+    },
+    {
+      "q": "商品ページのキャッチコピーを考えて",
+      "trigger": false
+    },
+    {
+      "q": "健康食品の広告表現が薬機法に触れないか見て",
+      "trigger": false
+    },
+    {
+      "q": "顧客に訴えられたので訴状への対応方針を決めてほしい",
+      "trigger": false
+    },
+    {
+      "q": "kintoneのレコードをAPIで一括取得したい",
+      "trigger": false
+    },
+    {
+      "q": "景表法のステマ規制に照らして、この広告文を確認して",
+      "trigger": false
+    }
+  ]
+}
