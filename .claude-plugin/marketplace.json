@@ -106,6 +106,15 @@
       "skills": [
         "./skills/jp-business-days"
       ]
+    },
+    {
+      "name": "jp-data-normalizer",
+      "description": "日本語の業務データ（名簿・顧客リスト・CSV）の表記ゆれを直す。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-data-normalizer"
+      ]
     }
   ]
 }

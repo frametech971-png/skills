@@ -1,0 +1,101 @@
+{
+ "skill_name": "jp-data-normalizer",
+ "queries": [
+  {
+   "q": "この顧客リストの全角半角と電話番号の表記を揃えて",
+   "trigger": true
+  },
+  {
+   "q": "住所を都道府県・市区町村・番地に分けて。CSVにして返して",
+   "trigger": true
+  },
+  {
+   "q": "昭和63年を西暦に直して",
+   "trigger": true
+  },
+  {
+   "q": "令和8年3月は西暦で何年？",
+   "trigger": true
+  },
+  {
+   "q": "CSVが文字化けする。Shift_JIS と UTF-8 どっちか分からない",
+   "trigger": true
+  },
+  {
+   "q": "郵便番号をハイフンつき7桁に統一したい",
+   "trigger": true
+  },
+  {
+   "q": "名簿の半角カナを全角にしたい。濁点が分かれてしまう",
+   "trigger": true
+  },
+  {
+   "q": "Excelで開いたCSVの電話番号の先頭の0が消えた。元に戻せる？",
+   "trigger": true
+  },
+  {
+   "q": "Normalize this Japanese customer CSV: zenkaku to hankaku, phone numbers and postal codes",
+   "trigger": true
+  },
+  {
+   "q": "Why does my Shift_JIS CSV show mojibake when I read it as UTF-8 in Python?",
+   "trigger": true
+  },
+  {
+   "q": "生年月日の列が 昭和・平成・令和 と西暦で混ざっている。西暦に揃えて",
+   "trigger": true
+  },
+  {
+   "q": "Convert Japanese era dates like 平成31年4月30日 to ISO dates",
+   "trigger": true
+  },
+  {
+   "q": "住所の実在確認をして、緯度経度も付けて",
+   "trigger": false
+  },
+  {
+   "q": "この住所の郵便番号を調べて（住所から郵便番号を引く）",
+   "trigger": false
+  },
+  {
+   "q": "顧客データベースのテーブル設計を考えて。正規化はどこまでやる？",
+   "trigger": false
+  },
+  {
+   "q": "このメール文を自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "特定電子メール法に沿ったステップメールを書いて",
+   "trigger": false
+  },
+  {
+   "q": "社内の日報を書いて",
+   "trigger": false
+  },
+  {
+   "q": "このCSVの売上を集計してグラフにして",
+   "trigger": false
+  },
+  {
+   "q": "楽天で商品を検索して価格順に並べて",
+   "trigger": false
+  },
+  {
+   "q": "顧客名簿を外部のAIサービスにアップロードして重複を探して",
+   "trigger": false
+  },
+  {
+   "q": "Webサイトのセキュリティ診断をして",
+   "trigger": false
+  },
+  {
+   "q": "英文のCSVの列名をキャメルケースに直して",
+   "trigger": false
+  },
+  {
+   "q": "会議の議事録を要約して",
+   "trigger": false
+  }
+ ]
+}

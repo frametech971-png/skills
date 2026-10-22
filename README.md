@@ -17,6 +17,7 @@
 | [`jp-privacy-policy-check`](skills/jp-privacy-policy-check) | Webサービス・アプリのプライバシーポリシー（個人情報の取扱い）を、個人情報保護法と電気通信事業法の外部送信規律に照らして点検し、足りない項目を根拠条文つきの表で指摘する。 | MIT | v1.0.0 |
 | [`jp-invoice-check`](skills/jp-invoice-check) | 日本のインボイス制度（適格請求書・適格簡易請求書）の記載事項の不足を指摘し、税率ごとの消費税額を検算し、登録番号（T+13桁）の形式と検査桁を確認する。 | MIT | v1.0.0 |
 | [`jp-business-days`](skills/jp-business-days) | 日本の祝日・振替休日・国民の休日を踏まえて、営業日を計算する。 | MIT | v1.0.0 |
+| [`jp-data-normalizer`](skills/jp-data-normalizer) | 日本語の業務データ（名簿・顧客リスト・CSV）の表記ゆれを直す。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 
