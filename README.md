@@ -10,6 +10,7 @@
 | [`jp-rakuten-item-search`](skills/jp-rakuten-item-search) | 楽天市場の商品を、2026年版の楽天ウェブサービス商品検索API（openapi.rakuten.co.jp、applicationId＋accessKey＋Referer）で検索し、商品名・価格・ショップ・レビュー・商品URL／アフィリエイトURLを表・JSON・CSVで返す。 | MIT | v1.0.0 |
 | [`jp-visual-explainer`](skills/jp-visual-explainer) | 仕組み・業務フロー・設計・コードの変更・計画・数字を、日本語の図解ページ（1ファイルの HTML。 | MIT | v1.0.0 |
 | [`jp-web-security-audit`](skills/jp-web-security-audit) | コード・API・サービスのセキュリティを、防御側の立場でソースから監査する。 | MIT | v1.0.0 |
+| [`jp-email-sequence`](skills/jp-email-sequence) | ウェルカム・育成・再エンゲージメント・購入後などのステップメール（メールシーケンス、ドリップ、ライフサイクルメール）を設計して文面まで作る。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 

@@ -1,0 +1,85 @@
+{
+ "skill_name": "jp-email-sequence",
+ "queries": [
+  {
+   "q": "新規会員向けのステップメールを5通作って",
+   "trigger": true
+  },
+  {
+   "q": "休眠顧客の掘り起こしメールを3通書いて",
+   "trigger": true
+  },
+  {
+   "q": "メルマガのフッターに何を書けばいい？",
+   "trigger": true
+  },
+  {
+   "q": "展示会で名刺交換した相手に案内メールを送ってもいい？",
+   "trigger": true
+  },
+  {
+   "q": "配信停止した人に送っていいメールはある？",
+   "trigger": true
+  },
+  {
+   "q": "無料トライアル登録者へのオンボーディングメールの流れを設計して",
+   "trigger": true
+  },
+  {
+   "q": "Design a welcome email series for our SaaS",
+   "trigger": true
+  },
+  {
+   "q": "Create a nurture drip campaign for leads who downloaded our ebook",
+   "trigger": true
+  },
+  {
+   "q": "購入者へのフォローアップメールのシーケンスを作って",
+   "trigger": true
+  },
+  {
+   "q": "メルマガ購読の同意記録はどれくらい保存すればいい？",
+   "trigger": true
+  },
+  {
+   "q": "取引先への納期遅延のお詫びメールを書いて",
+   "trigger": false
+  },
+  {
+   "q": "LINE公式アカウントのステップ配信を設計して",
+   "trigger": false
+  },
+  {
+   "q": "SMSでセールの告知を送りたい",
+   "trigger": false
+  },
+  {
+   "q": "LPのキャッチコピーを考えて",
+   "trigger": false
+  },
+  {
+   "q": "この文章を自然な日本語に整えて",
+   "trigger": false
+  },
+  {
+   "q": "個人情報が漏れたかも。報告は要る？",
+   "trigger": false
+  },
+  {
+   "q": "Write a cold outreach email to a prospect on LinkedIn",
+   "trigger": false
+  },
+  {
+   "q": "社内向けの一斉メールで会議の案内を書いて",
+   "trigger": false
+  },
+  {
+   "q": "業務フローを図解して",
+   "trigger": false
+  },
+  {
+   "q": "Gmailのフィルタ設定のやり方を教えて",
+   "trigger": false
+  }
+ ]
+}

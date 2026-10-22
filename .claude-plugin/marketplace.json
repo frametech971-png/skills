@@ -43,6 +43,15 @@
       "skills": [
         "./skills/jp-web-security-audit"
       ]
+    },
+    {
+      "name": "jp-email-sequence",
+      "description": "ウェルカム・育成・再エンゲージメント・購入後などのステップメール（メールシーケンス、ドリップ、ライフサイクルメール）を設計して文面まで作る。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-email-sequence"
+      ]
     }
   ]
 }
