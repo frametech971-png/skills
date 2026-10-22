@@ -14,6 +14,7 @@
 | [`jp-line-messaging-api`](skills/jp-line-messaging-api) | LINE公式アカウントの Messaging API を使う Bot・通知のコードを書き、Webhook の署名検証・reply/push・メッセージ上限・エラー・料金プランの原因を調べる。 | MIT | v1.0.0 |
 | [`jp-kintone-api`](skills/jp-kintone-api) | kintone の REST API でレコードを取得・登録・更新するコードを書き、クエリ構文・件数制限・認証・エラーの原因を調べる。 | MIT | v1.0.0 |
 | [`jp-freee-api`](skills/jp-freee-api) | freee 会計の API（OAuth2 認証、事業所ID、取引・勘定科目・取引先の取得と登録）を使うコードを書く、取引を期間指定で取得して CSV にする、認証やエラーの原因を調べる。 | MIT | v1.0.0 |
+| [`jp-privacy-policy-check`](skills/jp-privacy-policy-check) | Webサービス・アプリのプライバシーポリシー（個人情報の取扱い）を、個人情報保護法と電気通信事業法の外部送信規律に照らして点検し、足りない項目を根拠条文つきの表で指摘する。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 

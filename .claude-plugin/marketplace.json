@@ -79,6 +79,15 @@
       "skills": [
         "./skills/jp-freee-api"
       ]
+    },
+    {
+      "name": "jp-privacy-policy-check",
+      "description": "Webサービス・アプリのプライバシーポリシー（個人情報の取扱い）を、個人情報保護法と電気通信事業法の外部送信規律に照らして点検し、足りない項目を根拠条文つきの表で指摘する。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-privacy-policy-check"
+      ]
     }
   ]
 }

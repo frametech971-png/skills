@@ -1,0 +1,97 @@
+{
+ "skill_name": "jp-privacy-policy-check",
+ "queries": [
+  {
+   "q": "うちのサービスのプライバシーポリシーの抜けを確認して",
+   "trigger": true
+  },
+  {
+   "q": "個人情報保護法に沿ったプライバシーポリシーのひな形を作って",
+   "trigger": true
+  },
+  {
+   "q": "Cookie や Google Analytics はプライバシーポリシーに何を書けばいい？",
+   "trigger": true
+  },
+  {
+   "q": "第三者提供と委託の書き分けをプライバシーポリシーで見てほしい",
+   "trigger": true
+  },
+  {
+   "q": "プライバシーポリシーに開示請求の窓口を書きたい。書き方は？",
+   "trigger": true
+  },
+  {
+   "q": "アプリを出すのでプライバシーポリシーを作りたい。外部送信規律も気になる",
+   "trigger": true
+  },
+  {
+   "q": "このプライバシーポリシーが個人情報保護法の保有個人データの公表事項を満たしているか見て",
+   "trigger": true
+  },
+  {
+   "q": "海外のクラウドにユーザーのメールアドレスを預けるけど、プライバシーポリシーでの外国への提供の書き方は？",
+   "trigger": true
+  },
+  {
+   "q": "Review my privacy policy against Japan's APPI and list the missing items",
+   "trigger": true
+  },
+  {
+   "q": "Draft a Japanese privacy policy for my web app with a cookie and tracking section",
+   "trigger": true
+  },
+  {
+   "q": "プライバシーポリシーの利用目的が抽象的と言われた。法17条に照らして直して",
+   "trigger": true
+  },
+  {
+   "q": "利用規約のひな形を作って",
+   "trigger": false
+  },
+  {
+   "q": "GDPR に準拠したプライバシーポリシーを作って、EU の同意管理も設計して",
+   "trigger": false
+  },
+  {
+   "q": "特定商取引法に基づく表記のページを作って",
+   "trigger": false
+  },
+  {
+   "q": "会員向けのメールマガジンの文面を、特定電子メール法に沿って書いて",
+   "trigger": false
+  },
+  {
+   "q": "このサイトのセキュリティ上の問題を監査して",
+   "trigger": false
+  },
+  {
+   "q": "個人情報が漏えいした件の社内向け障害報告を書いて",
+   "trigger": false
+  },
+  {
+   "q": "このプライバシーポリシーの文章を自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "この会社を個人情報保護法違反で訴えられるか教えて",
+   "trigger": false
+  },
+  {
+   "q": "日報を書いて。今日はA社に訪問した",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場で商品を検索して価格を比べて",
+   "trigger": false
+  },
+  {
+   "q": "Cookie 同意バナーの React コンポーネントを実装して",
+   "trigger": false
+  },
+  {
+   "q": "景品表示法に照らして広告文の表現を確認して",
+   "trigger": false
+  }
+ ]
+}
