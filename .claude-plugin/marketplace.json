@@ -88,6 +88,15 @@
       "skills": [
         "./skills/jp-privacy-policy-check"
       ]
+    },
+    {
+      "name": "jp-invoice-check",
+      "description": "日本のインボイス制度（適格請求書・適格簡易請求書）の記載事項の不足を指摘し、税率ごとの消費税額を検算し、登録番号（T+13桁）の形式と検査桁を確認する。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-invoice-check"
+      ]
     }
   ]
 }

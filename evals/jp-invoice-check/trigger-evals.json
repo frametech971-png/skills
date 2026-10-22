@@ -1,0 +1,97 @@
+{
+ "skill_name": "jp-invoice-check",
+ "queries": [
+  {
+   "q": "この請求書の記載がインボイスの要件を満たしているか見て",
+   "trigger": true
+  },
+  {
+   "q": "税率ごとの消費税を計算して。10%が3,000円、8%が2,000円（税抜）",
+   "trigger": true
+  },
+  {
+   "q": "登録番号 T1234567890123 は形式として正しい？",
+   "trigger": true
+  },
+  {
+   "q": "領収書をインボイスにするには何が足りない？",
+   "trigger": true
+  },
+  {
+   "q": "10%と8%が混在する請求書の消費税額の出し方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "取引先から来た請求書に適格請求書発行事業者の登録番号が書いてないんだけど、受け取って大丈夫？",
+   "trigger": true
+  },
+  {
+   "q": "簡易インボイスで省略できる項目って何？",
+   "trigger": true
+  },
+  {
+   "q": "品目ごとに消費税を切り捨てて合計しても、インボイスとして問題ない？",
+   "trigger": true
+  },
+  {
+   "q": "免税事業者からの仕入れの経過措置って今どうなってる？",
+   "trigger": true
+  },
+  {
+   "q": "Does this Japanese invoice meet the qualified invoice requirements? Check the registration number and tax breakdown.",
+   "trigger": true
+  },
+  {
+   "q": "How do I calculate consumption tax per rate for a mixed 10% and 8% invoice in Japan?",
+   "trigger": true
+  },
+  {
+   "q": "この請求書の仕訳を切って。借方・貸方も書いて",
+   "trigger": false
+  },
+  {
+   "q": "今年の消費税の確定申告書を作成して",
+   "trigger": false
+  },
+  {
+   "q": "freeeで請求書を発行する手順を教えて",
+   "trigger": false
+  },
+  {
+   "q": "取引先に送る請求書送付メールの文面を書いて",
+   "trigger": false
+  },
+  {
+   "q": "社内向けに経費精算ルール変更のお知らせを書いて",
+   "trigger": false
+  },
+  {
+   "q": "簡易課税と本則課税、うちはどっちが得か判断して",
+   "trigger": false
+  },
+  {
+   "q": "この契約書の印紙税の扱いを教えて",
+   "trigger": false
+  },
+  {
+   "q": "請求書のデザインをHTMLで作って。ロゴ入りで",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場で税込3,000円以下の商品を探して",
+   "trigger": false
+  },
+  {
+   "q": "このAIっぽい請求のお願い文を自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "Webサイトの脆弱性を診断して",
+   "trigger": false
+  },
+  {
+   "q": "Write a Python function that sums the numbers in a CSV file",
+   "trigger": false
+  }
+ ]
+}

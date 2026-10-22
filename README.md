@@ -15,6 +15,7 @@
 | [`jp-kintone-api`](skills/jp-kintone-api) | kintone の REST API でレコードを取得・登録・更新するコードを書き、クエリ構文・件数制限・認証・エラーの原因を調べる。 | MIT | v1.0.0 |
 | [`jp-freee-api`](skills/jp-freee-api) | freee 会計の API（OAuth2 認証、事業所ID、取引・勘定科目・取引先の取得と登録）を使うコードを書く、取引を期間指定で取得して CSV にする、認証やエラーの原因を調べる。 | MIT | v1.0.0 |
 | [`jp-privacy-policy-check`](skills/jp-privacy-policy-check) | Webサービス・アプリのプライバシーポリシー（個人情報の取扱い）を、個人情報保護法と電気通信事業法の外部送信規律に照らして点検し、足りない項目を根拠条文つきの表で指摘する。 | MIT | v1.0.0 |
+| [`jp-invoice-check`](skills/jp-invoice-check) | 日本のインボイス制度（適格請求書・適格簡易請求書）の記載事項の不足を指摘し、税率ごとの消費税額を検算し、登録番号（T+13桁）の形式と検査桁を確認する。 | MIT | v1.0.0 |
 
 各スキルのフォルダに、使い方・元との違い・評価の数字・動作確認の範囲を書いた README があります。評価セットは `evals/<name>/` にあり、誰でも再現できます。
 
