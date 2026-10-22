@@ -70,6 +70,15 @@
       "skills": [
         "./skills/jp-kintone-api"
       ]
+    },
+    {
+      "name": "jp-freee-api",
+      "description": "freee 会計の API（OAuth2 認証、事業所ID、取引・勘定科目・取引先の取得と登録）を使うコードを書く、取引を期間指定で取得して CSV にする、認証やエラーの原因を調べる。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-freee-api"
+      ]
     }
   ]
 }

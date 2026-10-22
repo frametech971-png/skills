@@ -1,0 +1,105 @@
+{
+ "skill_name": "jp-freee-api",
+ "queries": [
+  {
+   "q": "freee の取引を月別に取得して CSV にして",
+   "trigger": true
+  },
+  {
+   "q": "freee API のアクセストークンの取り方と更新の仕方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "freee API を使うのに company_id がわからない",
+   "trigger": true
+  },
+  {
+   "q": "freee の取引を API で登録するコードを書いて",
+   "trigger": true
+  },
+  {
+   "q": "freee APIが401を返す。expired_access_token って何？",
+   "trigger": true
+  },
+  {
+   "q": "freee 会計の API でリクエストが多すぎると言われた。レート制限は？",
+   "trigger": true
+  },
+  {
+   "q": "Python で freee の勘定科目と取引先の一覧を取得したい",
+   "trigger": true
+  },
+  {
+   "q": "freee API のリフレッシュトークンが invalid_grant になる",
+   "trigger": true
+  },
+  {
+   "q": "How do I get a list of deals from the freee accounting API with pagination?",
+   "trigger": true
+  },
+  {
+   "q": "freee API OAuth2 refresh token expiry and company_id",
+   "trigger": true
+  },
+  {
+   "q": "freee API の 2026年10月分の支出だけ JSON でほしい",
+   "trigger": true
+  },
+  {
+   "q": "freee のアプリを作って Client ID を取ったあと、最初の API 呼び出しまで進めたい",
+   "trigger": true
+  },
+  {
+   "q": "freee 人事労務の API で勤怠を取得するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "freee 請求書 API で請求書を発行したい",
+   "trigger": false
+  },
+  {
+   "q": "この支出は経費にできる？ 勘定科目はどれが正しい？",
+   "trigger": false
+  },
+  {
+   "q": "freee 会計の画面で仕訳を修正する手順を教えて",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場の商品を検索して価格順に並べて",
+   "trigger": false
+  },
+  {
+   "q": "マネーフォワードのクラウド会計の使い方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "Stripe の決済 API で請求を作るコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "確定申告の青色申告特別控除の要件を教えて",
+   "trigger": false
+  },
+  {
+   "q": "社内の稟議書を書いて",
+   "trigger": false
+  },
+  {
+   "q": "この文章をAIっぽくない自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "自社サイトのセキュリティ診断をして",
+   "trigger": false
+  },
+  {
+   "q": "経費精算の議事録をまとめて",
+   "trigger": false
+  },
+  {
+   "q": "Google スプレッドシートの関数 VLOOKUP を直して",
+   "trigger": false
+  }
+ ]
+}
