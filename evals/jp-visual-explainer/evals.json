@@ -1,0 +1,220 @@
+{
+ "skill_name": "jp-visual-explainer",
+ "evals": [
+  {
+   "id": 1,
+   "name": "approval-flow",
+   "prompt": "うちの経費精算の流れを1枚の図解ページにして。申請者が申請→上長が承認→経理が確認→支払い。差し戻しは上長・経理のどちらからも申請者に戻る。5万円以上は上長のあとに部長承認が入る。",
+   "checks": [
+    {
+     "text": "lang=\"ja\" を指定している",
+     "type": "regex",
+     "value": "<html[^>]*lang=[\"\\']ja",
+     "scope": "all"
+    },
+    {
+     "text": "和文フォントを指定している",
+     "type": "regex",
+     "value": "Noto Sans JP|Noto Serif JP|BIZ UD|Hiragino|Yu Gothic|M PLUS|Zen Kaku|IBM Plex Sans JP|Meiryo|ヒラギノ|游ゴシック",
+     "scope": "all"
+    },
+    {
+     "text": "和文の改行規則（line-break: strict か word-break: auto-phrase）",
+     "type": "regex",
+     "value": "line-break:\\s*strict|word-break:\\s*auto-phrase",
+     "scope": "all"
+    },
+    {
+     "text": "5万円の分岐が入っている",
+     "type": "contains",
+     "value": "5万円",
+     "scope": "all"
+    },
+    {
+     "text": "図の番号が「図1」形式",
+     "type": "regex",
+     "value": "図\\s?1",
+     "scope": "all"
+    },
+    {
+     "text": "<figure> で図を置いている",
+     "type": "regex",
+     "value": "<figure",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "kpi-dashboard",
+   "prompt": "9月の月次レポートを1ページの図解に。売上 1,280万円（前月比 +12%）、解約率 2.1%（前月 2.6%）、新規契約 340件（前月 295件）。経営会議で見せる。",
+   "checks": [
+    {
+     "text": "lang=\"ja\" を指定している",
+     "type": "regex",
+     "value": "<html[^>]*lang=[\"\\']ja",
+     "scope": "all"
+    },
+    {
+     "text": "和文フォントを指定している",
+     "type": "regex",
+     "value": "Noto Sans JP|Noto Serif JP|BIZ UD|Hiragino|Yu Gothic|M PLUS|Zen Kaku|IBM Plex Sans JP|Meiryo|ヒラギノ|游ゴシック",
+     "scope": "all"
+    },
+    {
+     "text": "和文の改行規則（line-break: strict か word-break: auto-phrase）",
+     "type": "regex",
+     "value": "line-break:\\s*strict|word-break:\\s*auto-phrase",
+     "scope": "all"
+    },
+    {
+     "text": "売上の数値が原文どおり",
+     "type": "contains",
+     "value": "1,280",
+     "scope": "all"
+    },
+    {
+     "text": "解約率の数値が原文どおり",
+     "type": "contains",
+     "value": "2.1%",
+     "scope": "all"
+    },
+    {
+     "text": "数字に tabular-nums",
+     "type": "regex",
+     "value": "tabular-nums",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "login-architecture",
+   "prompt": "Webアプリのログインの仕組みを図解して。ブラウザ→APIサーバー→認証サーバー→ユーザーDB。セッションは Redis に30分保存。新人エンジニア向け。",
+   "checks": [
+    {
+     "text": "lang=\"ja\" を指定している",
+     "type": "regex",
+     "value": "<html[^>]*lang=[\"\\']ja",
+     "scope": "all"
+    },
+    {
+     "text": "和文フォントを指定している",
+     "type": "regex",
+     "value": "Noto Sans JP|Noto Serif JP|BIZ UD|Hiragino|Yu Gothic|M PLUS|Zen Kaku|IBM Plex Sans JP|Meiryo|ヒラギノ|游ゴシック",
+     "scope": "all"
+    },
+    {
+     "text": "和文の改行規則（line-break: strict か word-break: auto-phrase）",
+     "type": "regex",
+     "value": "line-break:\\s*strict|word-break:\\s*auto-phrase",
+     "scope": "all"
+    },
+    {
+     "text": "SVG の図がある",
+     "type": "regex",
+     "value": "<svg",
+     "scope": "all"
+    },
+    {
+     "text": "SVG のラベルが日本語",
+     "type": "regex",
+     "value": "<text[^>]*>[^<]*[ぁ-んァ-ヶ一-龥]",
+     "scope": "all"
+    },
+    {
+     "text": "30分の保存時間が入っている",
+     "type": "regex",
+     "value": "30\\s?分",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "jp-slides",
+   "prompt": "新入社員研修向けに、情報セキュリティのルールを3枚のスライドにして（HTMLで）。①パスワードは使い回さない ②不審なメールのリンクは開かず情報システム部へ転送 ③社外へのデータ持ち出しは上長の許可が必要。",
+   "checks": [
+    {
+     "text": "lang=\"ja\" を指定している",
+     "type": "regex",
+     "value": "<html[^>]*lang=[\"\\']ja",
+     "scope": "all"
+    },
+    {
+     "text": "和文フォントを指定している",
+     "type": "regex",
+     "value": "Noto Sans JP|Noto Serif JP|BIZ UD|Hiragino|Yu Gothic|M PLUS|Zen Kaku|IBM Plex Sans JP|Meiryo|ヒラギノ|游ゴシック",
+     "scope": "all"
+    },
+    {
+     "text": "和文の改行規則（line-break: strict か word-break: auto-phrase）",
+     "type": "regex",
+     "value": "line-break:\\s*strict|word-break:\\s*auto-phrase",
+     "scope": "all"
+    },
+    {
+     "text": "スライドの構造（section.slide）",
+     "type": "regex",
+     "value": "class=\"slide",
+     "scope": "all"
+    },
+    {
+     "text": "3つのルールがすべて入っている",
+     "type": "regex",
+     "value": "(?=[\\s\\S]*使い回)(?=[\\s\\S]*情報システム部)(?=[\\s\\S]*上長の許可)",
+     "scope": "all"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "long-jp-heading",
+   "prompt": "社内規程の改定を1ページで周知したい。見出しは「在宅勤務の申請は前日17時までに上長へ、深夜帯（22時〜翌5時）の業務は原則禁止に変わります」で、2026年11月1日施行。変更前は当日朝9時までの申請、深夜業務は事前申請で可だった。変更前後の違いを図で。",
+   "checks": [
+    {
+     "text": "lang=\"ja\" を指定している",
+     "type": "regex",
+     "value": "<html[^>]*lang=[\"\\']ja",
+     "scope": "all"
+    },
+    {
+     "text": "和文フォントを指定している",
+     "type": "regex",
+     "value": "Noto Sans JP|Noto Serif JP|BIZ UD|Hiragino|Yu Gothic|M PLUS|Zen Kaku|IBM Plex Sans JP|Meiryo|ヒラギノ|游ゴシック",
+     "scope": "all"
+    },
+    {
+     "text": "和文の改行規則（line-break: strict か word-break: auto-phrase）",
+     "type": "regex",
+     "value": "line-break:\\s*strict|word-break:\\s*auto-phrase",
+     "scope": "all"
+    },
+    {
+     "text": "期限 17時 が入っている",
+     "type": "contains",
+     "value": "17時",
+     "scope": "all"
+    },
+    {
+     "text": "深夜帯 22時 が入っている",
+     "type": "contains",
+     "value": "22時",
+     "scope": "all"
+    },
+    {
+     "text": "施行日が入っている",
+     "type": "regex",
+     "value": "2026年11月1日|2026-11-01",
+     "scope": "all"
+    },
+    {
+     "text": "見出しの字間を詰めていない（:lang(ja) で 0 に戻すか、負の letter-spacing が無い）",
+     "type": "regex",
+     "value": ":lang\\(ja\\)[^{]*\\{[^}]*letter-spacing:\\s*0|(?<![\\s\\S])(?![\\s\\S]*letter-spacing:\\s*-)",
+     "scope": "all"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "skill_name": "jp-visual-explainer",
+ "queries": [
+  {
+   "q": "この承認フローを図解してHTMLで見せて",
+   "trigger": true
+  },
+  {
+   "q": "システム構成を1枚の図にまとめて",
+   "trigger": true
+  },
+  {
+   "q": "今月のKPIをダッシュボード風のページにして",
+   "trigger": true
+  },
+  {
+   "q": "このPRの変更点を図で説明して",
+   "trigger": true
+  },
+  {
+   "q": "新人向けにログインの仕組みを図解して",
+   "trigger": true
+  },
+  {
+   "q": "日本語のスライドをHTMLで3枚作って",
+   "trigger": true
+  },
+  {
+   "q": "Draw an architecture diagram of this service as an HTML page",
+   "trigger": true
+  },
+  {
+   "q": "Make a visual explainer of how our cache works",
+   "trigger": true
+  },
+  {
+   "q": "この計画を見やすいページにまとめて",
+   "trigger": true
+  },
+  {
+   "q": "データの流れを図にして説明して",
+   "trigger": true
+  },
+  {
+   "q": "PowerPointのファイルで提案書を作って",
+   "trigger": false
+  },
+  {
+   "q": "ロゴのイラストを生成して",
+   "trigger": false
+  },
+  {
+   "q": "この文章を自然な日本語に整えて",
+   "trigger": false
+  },
+  {
+   "q": "楽天で電気ケトルを探して",
+   "trigger": false
+  },
+  {
+   "q": "このCSVの平均と中央値を出して",
+   "trigger": false
+  },
+  {
+   "q": "このReactコンポーネントのバグを直して",
+   "trigger": false
+  },
+  {
+   "q": "Translate this README into Japanese",
+   "trigger": false
+  },
+  {
+   "q": "チラシを印刷用のPDFで作って",
+   "trigger": false
+  },
+  {
+   "q": "この記事を300字に要約して",
+   "trigger": false
+  },
+  {
+   "q": "Write unit tests for this function",
+   "trigger": false
+  }
+ ]
+}

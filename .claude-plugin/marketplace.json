@@ -25,6 +25,15 @@
       "skills": [
         "./skills/jp-rakuten-item-search"
       ]
+    },
+    {
+      "name": "jp-visual-explainer",
+      "description": "仕組み・業務フロー・設計・コードの変更・計画・数字を、日本語の図解ページ（1ファイルの HTML。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-visual-explainer"
+      ]
     }
   ]
 }
