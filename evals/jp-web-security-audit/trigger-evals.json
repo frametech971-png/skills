@@ -1,0 +1,85 @@
+{
+ "skill_name": "jp-web-security-audit",
+ "queries": [
+  {
+   "q": "このコードの脆弱性を見て",
+   "trigger": true
+  },
+  {
+   "q": "セキュリティ監査して報告書にして",
+   "trigger": true
+  },
+  {
+   "q": "個人情報が漏れたかもしれない。委員会への報告は要る？",
+   "trigger": true
+  },
+  {
+   "q": "SQLインジェクションが見つかったので取引先向けにまとめて",
+   "trigger": true
+  },
+  {
+   "q": "令和8年の個人情報保護法改正で漏えい報告はどう変わる？",
+   "trigger": true
+  },
+  {
+   "q": "他社製品の脆弱性を見つけた。どこに届け出ればいい？",
+   "trigger": true
+  },
+  {
+   "q": "Review this API for authorization bugs",
+   "trigger": true
+  },
+  {
+   "q": "Do a security audit of this repository",
+   "trigger": true
+  },
+  {
+   "q": "ランサムウェアで顧客データが暗号化された。報告はどうする？",
+   "trigger": true
+  },
+  {
+   "q": "このログイン処理にセキュリティ上の問題はない？",
+   "trigger": true
+  },
+  {
+   "q": "このコードのバグを直して",
+   "trigger": false
+  },
+  {
+   "q": "プライバシーポリシーの文案を作って",
+   "trigger": false
+  },
+  {
+   "q": "このLPの文章を自然な日本語に整えて",
+   "trigger": false
+  },
+  {
+   "q": "システム構成を図解してHTMLで",
+   "trigger": false
+  },
+  {
+   "q": "楽天APIが403になる",
+   "trigger": false
+  },
+  {
+   "q": "このクエリを速くして",
+   "trigger": false
+  },
+  {
+   "q": "Write unit tests for this function",
+   "trigger": false
+  },
+  {
+   "q": "利用規約の解約条項をチェックして",
+   "trigger": false
+  },
+  {
+   "q": "パスワードを忘れたときの画面の文言を考えて",
+   "trigger": false
+  },
+  {
+   "q": "Explain how HTTPS works",
+   "trigger": false
+  }
+ ]
+}
