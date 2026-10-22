@@ -1,0 +1,105 @@
+{
+ "skill_name": "jp-nta-corporate-api",
+ "queries": [
+  {
+   "q": "法人番号から会社名を取得するコードを書いて",
+   "trigger": true
+  },
+  {
+   "q": "国税庁の法人番号APIで会社名から法人番号を検索したい",
+   "trigger": true
+  },
+  {
+   "q": "適格請求書の登録番号が有効かAPIで調べたい",
+   "trigger": true
+  },
+  {
+   "q": "インボイスの登録番号 T から事業者名を取得するスクリプトを書いて",
+   "trigger": true
+  },
+  {
+   "q": "国税庁APIのアプリケーションIDの取り方を教えて",
+   "trigger": true
+  },
+  {
+   "q": "法人番号の差分データを毎日取る方法は？",
+   "trigger": true
+  },
+  {
+   "q": "法人番号公表サイトのWeb-APIで404が返る原因を調べて",
+   "trigger": true
+  },
+  {
+   "q": "houjin-bangou Web-API の type パラメーターに何を指定する？",
+   "trigger": true
+  },
+  {
+   "q": "インボイス公表システムのWeb-APIで50日を超える差分を取りたい",
+   "trigger": true
+  },
+  {
+   "q": "国税庁の法人番号APIで1回に取れる件数の上限と分割取得のやり方",
+   "trigger": true
+  },
+  {
+   "q": "Write Python to look up a Japanese corporate number via the NTA houjin-bangou Web-API",
+   "trigger": true
+  },
+  {
+   "q": "Check whether an invoice registration number (T-number) is valid using the NTA invoice-kohyo Web-API",
+   "trigger": true
+  },
+  {
+   "q": "法人番号の13桁が正しいか検査桁を計算して確かめて",
+   "trigger": false
+  },
+  {
+   "q": "T番号の形式チェックと検査桁の検証をして。請求書の記載漏れも見て",
+   "trigger": false
+  },
+  {
+   "q": "国税庁のサイトをスクレイピングして法人情報を集めて",
+   "trigger": false
+  },
+  {
+   "q": "この会社が適格請求書発行事業者として登録されていれば仕入税額控除ができるか教えて",
+   "trigger": false
+  },
+  {
+   "q": "freee API で取引先を登録するコードを書いて",
+   "trigger": false
+  },
+  {
+   "q": "kintone のレコードを全件取得したい",
+   "trigger": false
+  },
+  {
+   "q": "e-Stat API で人口統計を取得したい",
+   "trigger": false
+  },
+  {
+   "q": "帝国データバンクの企業情報APIの使い方",
+   "trigger": false
+  },
+  {
+   "q": "Companies House (UK) の API で会社を検索して",
+   "trigger": false
+  },
+  {
+   "q": "インボイス制度の概要と2割特例を説明して",
+   "trigger": false
+  },
+  {
+   "q": "請求書のPDFから登録番号を抜き出して",
+   "trigger": false
+  },
+  {
+   "q": "法人税の申告書の書き方を教えて",
+   "trigger": false
+  },
+  {
+   "q": "住所の表記ゆれを正規化する関数を書いて",
+   "trigger": false
+  }
+ ]
+}

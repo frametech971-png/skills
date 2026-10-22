@@ -1,0 +1,302 @@
+{
+ "skill_name": "jp-nta-corporate-api",
+ "evals": [
+  {
+   "id": 1,
+   "name": "houjin-num-name-code",
+   "prompt": "法人番号 5111101000006 から会社名と所在地を取得する Python のコードを書いて。国税庁の公式APIで、外部ライブラリは使いたくない。",
+   "files": [],
+   "checks": [
+    {
+     "text": "法人番号 API のホスト api.houjin-bangou.nta.go.jp を使う",
+     "type": "regex",
+     "value": "api\\.houjin-bangou\\.nta\\.go\\.jp"
+    },
+    {
+     "text": "バージョン4と num 機能",
+     "type": "regex",
+     "value": "/4/num|4/num"
+    },
+    {
+     "text": "アプリケーションIDは環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|getenv|NTA_(HOUJIN|INVOICE)_APP_ID|process\\.env"
+    },
+    {
+     "text": "応答形式 type を指定（XML=12 または CSV=02）",
+     "type": "regex",
+     "value": "type=12|type=02|\"type\":\\s*\"1?2\"|type.{0,6}(12|02)"
+    },
+    {
+     "text": "XML か CSV で解釈する（JSON とは書かない前提）",
+     "type": "regex",
+     "value": "ElementTree|xml|csv|XML|CSV"
+    },
+    {
+     "text": "標準ライブラリ（urllib 等）",
+     "type": "regex",
+     "value": "urllib|http\\.client"
+    },
+    {
+     "text": "名称は name 要素などから取り出す",
+     "type": "regex",
+     "value": "name|商号"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "pasted-app-id-trap",
+   "prompt": "このアプリケーションIDで法人番号 5111101000006 を調べるコードを書いて。ID は 4829175036481 です。",
+   "files": [],
+   "checks": [
+    {
+     "text": "貼られたIDをコードや返答に書き写さない",
+     "type": "not_contains",
+     "value": "4829175036481"
+    },
+    {
+     "text": "環境変数から読む形で書く",
+     "type": "regex",
+     "value": "os\\.environ|getenv|NTA_(HOUJIN|INVOICE)_APP_ID|process\\.env"
+    },
+    {
+     "text": "貼られたIDは漏れた可能性があるので扱いに注意（国税庁へ連絡・再発行・停止など）",
+     "type": "regex",
+     "value": "国税庁|漏れ|再発行|停止|再取得|開示|第三者|管理"
+    },
+    {
+     "text": "法人番号 API の num を使う",
+     "type": "regex",
+     "value": "/4/num|4/num|houjin-bangou"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "invoice-valid-api",
+   "prompt": "適格請求書の登録番号 T8040001999011 が今日時点で有効か、APIで調べるコードを書いて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "インボイス Web-API のホスト web-api.invoice-kohyo.nta.go.jp",
+     "type": "regex",
+     "value": "web-api\\.invoice-kohyo\\.nta\\.go\\.jp"
+    },
+    {
+     "text": "valid（登録番号と日付）または num を使う",
+     "type": "regex",
+     "value": "/1/valid|1/valid|/1/num|1/num"
+    },
+    {
+     "text": "判定基準日 day を渡す（valid の場合）",
+     "type": "regex",
+     "value": "day="
+    },
+    {
+     "text": "T＋13桁で渡す",
+     "type": "regex",
+     "value": "T8040001999011|T\\+13|T＋13|T\\d"
+    },
+    {
+     "text": "環境変数から読む",
+     "type": "regex",
+     "value": "os\\.environ|getenv|NTA_(HOUJIN|INVOICE)_APP_ID|process\\.env"
+    },
+    {
+     "text": "取消年月日・失効年月日（disposalDate / expireDate）を見る",
+     "type": "regex",
+     "value": "expireDate|disposalDate|失効|取消"
+    },
+    {
+     "text": "有効かどうかの法的判断は断定しない旨か、確認が要る旨に触れる",
+     "type": "regex",
+     "value": "断定|法的|税理士|国税庁|確認|公表サイト"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "json-trap-houjin",
+   "prompt": "法人番号APIの応答を JSON で受け取りたい。type には何を指定すればいい？",
+   "files": [],
+   "checks": [
+    {
+     "text": "法人番号 API は JSON に対応していないと説明する",
+     "type": "regex",
+     "value": "JSON.{0,20}(ない|非対応|未対応|できません|対応していません|提供されて|ありません)|(ない|非対応|未対応).{0,10}JSON|XML.{0,10}(のみ|か|または|もしくは)|01.{0,40}02.{0,40}12"
+    },
+    {
+     "text": "使える形式 XML(12) と CSV(01/02) を挙げる",
+     "type": "regex",
+     "value": "12.{0,30}XML|XML.{0,30}12"
+    },
+    {
+     "text": "インボイス側は JSON(21) が使えると区別する",
+     "type": "regex",
+     "value": "21"
+    },
+    {
+     "text": "文字コード（Shift-JIS か UTF-8）に触れる",
+     "type": "regex",
+     "value": "Shift-?JIS|UTF-?8|Unicode|文字コード"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "app-id-how-to",
+   "prompt": "国税庁のAPIを使いたいんだけど、アプリケーションIDってどうやって取るの？費用や時間も教えて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "無料である",
+     "type": "regex",
+     "value": "無料|手数料.{0,6}(不要|なし)|費用.{0,6}(かか|不要)"
+    },
+    {
+     "text": "窓口は適格請求書発行事業者公表サイトの Web-API 画面（invoice-kohyo）",
+     "type": "regex",
+     "value": "invoice-kohyo|適格請求書.{0,10}公表サイト"
+    },
+    {
+     "text": "書面では受け付けない／オンライン手続",
+     "type": "regex",
+     "value": "書面|オンライン|ウェブ|Web|インターネット"
+    },
+    {
+     "text": "発行まで時間がかかる（2週間〜1か月ほど）",
+     "type": "regex",
+     "value": "2週間|1か月|1ヶ月|一か月|1カ月|数週間|審査"
+    },
+    {
+     "text": "法人番号用IDとインボイス用IDの違い（インボイス用は両方使える）",
+     "type": "regex",
+     "value": "インボイス用.{0,40}(両方|どちらも|両)|法人番号用.{0,40}(のみ|だけ|しか)"
+    },
+    {
+     "text": "同じメールアドレスで複数のIDは取れない",
+     "type": "regex",
+     "value": "同じメール|メールアドレス.{0,30}(複数|重複|1つ|ひとつ|一つ)"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "diff-limits",
+   "prompt": "法人番号の差分データを毎日取りたい。1回で取れる件数の上限や、全部取る方法、インボイスの差分との違いも知りたい。",
+   "files": [],
+   "checks": [
+    {
+     "text": "法人番号 diff は 2,000 件を超えると分割",
+     "type": "regex",
+     "value": "2,?000"
+    },
+    {
+     "text": "インボイス diff は 500 件で分割",
+     "type": "regex",
+     "value": "500"
+    },
+    {
+     "text": "分割番号 divide を分割数まで繰り返す",
+     "type": "regex",
+     "value": "divide|分割番号|分割数"
+    },
+    {
+     "text": "期間は50日以内",
+     "type": "regex",
+     "value": "50\\s*日"
+    },
+    {
+     "text": "開始日の下限（2015-12-01 または 2021-10-01）",
+     "type": "regex",
+     "value": "2015-12-01|2021-10-01|2015年12月|2021年10月"
+    },
+    {
+     "text": "全件の土台は公表サイトのダウンロード",
+     "type": "regex",
+     "value": "ダウンロード|全件"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "split-range-and-rate",
+   "prompt": "法人番号の更新分を 2026-07-01 から 2026-10-23 までまとめて取りたい。from と to にその日付を入れたら動く？",
+   "files": [],
+   "checks": [
+    {
+     "text": "そのままでは50日を超えるのでエラーになる（031）",
+     "type": "regex",
+     "value": "50\\s*日|031"
+    },
+    {
+     "text": "50日以内に区切って複数回に分ける",
+     "type": "regex",
+     "value": "区切|分割|分け|複数回|ループ|chunk"
+    },
+    {
+     "text": "リクエスト間隔を空ける（短時間の大量アクセスは禁止・403）",
+     "type": "regex",
+     "value": "間隔|sleep|待|スリープ|短時間|大量アクセス|403"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "error-404-wrong-id-type",
+   "prompt": "法人番号APIは動いたのに、インボイスのAPIを呼ぶと 404 が返る。IDは同じものを使っている。原因を調べて。",
+   "files": [],
+   "checks": [
+    {
+     "text": "法人番号用IDではインボイスAPIは使えない可能性を挙げる",
+     "type": "regex",
+     "value": "法人番号用.{0,50}(インボイス|使えない|権限)|インボイス用.{0,30}(ID|id)|権限"
+    },
+    {
+     "text": "URL（ホスト・バージョン1・機能名）の誤りも確かめる",
+     "type": "regex",
+     "value": "web-api\\.invoice-kohyo|バージョン|/1/|URL"
+    },
+    {
+     "text": "IDの無効・未登録・停止（3年アクセスなし等）に触れる",
+     "type": "regex",
+     "value": "無効|未登録|停止|3年|三年"
+    },
+    {
+     "text": "断定せず確かめ方を示す",
+     "type": "regex",
+     "value": "確認|確かめ|可能性|候補|まず"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "bulk-and-terms",
+   "prompt": "取引先1万社分の法人名を国税庁のAPIで並列で一気に引いて、自分のSaaSの画面に出したい。注意点は？",
+   "files": [],
+   "checks": [
+    {
+     "text": "短時間の大量アクセスは規約で禁止／アクセス制限(403)",
+     "type": "regex",
+     "value": "短時間|大量アクセス|403|アクセス制限"
+    },
+    {
+     "text": "10件ずつまとめて引ける（num は最大10件）",
+     "type": "regex",
+     "value": "10\\s*件"
+    },
+    {
+     "text": "サービスとして出すなら出典の明示が必要",
+     "type": "regex",
+     "value": "出典|明示|保証されたものではない"
+    },
+    {
+     "text": "IDを第三者に渡さない・コードに埋めない",
+     "type": "regex",
+     "value": "第三者|開示|貸与|環境変数|管理"
+    }
+   ]
+  }
+ ]
+}
