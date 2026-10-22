@@ -1,0 +1,109 @@
+{
+ "skill_name": "jp-business-days",
+ "queries": [
+  {
+   "q": "2026年の祝日を一覧にして",
+   "trigger": true
+  },
+  {
+   "q": "10月30日から3営業日後は？",
+   "trigger": true
+  },
+  {
+   "q": "今月の営業日数を数えて。土日祝は休み",
+   "trigger": true
+  },
+  {
+   "q": "支払期限が土日祝に当たるなら翌営業日に直して。期限は11月29日",
+   "trigger": true
+  },
+  {
+   "q": "この日は祝日？ 2026年9月22日",
+   "trigger": true
+  },
+  {
+   "q": "年末年始（12/29〜1/3）を休みにして営業日を計算したい",
+   "trigger": true
+  },
+  {
+   "q": "納品は発注の5営業日後。11月2日に発注したらいつ？",
+   "trigger": true
+  },
+  {
+   "q": "2027年の振替休日はいつ？",
+   "trigger": true
+  },
+  {
+   "q": "How many business days are there in November 2026 in Japan, excluding holidays?",
+   "trigger": true
+  },
+  {
+   "q": "What is 3 business days after Oct 30, 2026, given Japanese public holidays?",
+   "trigger": true
+  },
+  {
+   "q": "月末締め翌月払いで、月末が休みなら翌営業日にしたい。2026年11月分の支払日は？",
+   "trigger": true
+  },
+  {
+   "q": "ゴールデンウィークの2026年の休みの並びを教えて。何連休？",
+   "trigger": true
+  },
+  {
+   "q": "社内文書の日報を書いて。今日の作業は見積作成と訪問",
+   "trigger": false
+  },
+  {
+   "q": "議事録をまとめて。次回の会議日程も決めたい",
+   "trigger": false
+  },
+  {
+   "q": "AIっぽい文章を自然な日本語に直して",
+   "trigger": false
+  },
+  {
+   "q": "特定電子メール法に沿ったステップメールを作って",
+   "trigger": false
+  },
+  {
+   "q": "この説明を図にしたスライドのHTMLを作って",
+   "trigger": false
+  },
+  {
+   "q": "Webサイトのセキュリティ監査をして",
+   "trigger": false
+  },
+  {
+   "q": "楽天市場でノートPCの最安値を検索して",
+   "trigger": false
+  },
+  {
+   "q": "2か月後の日付を計算して。カレンダー上の日数だけで、祝日は関係ない",
+   "trigger": false
+  },
+  {
+   "q": "アメリカの祝日（サンクスギビング）の日付を教えて",
+   "trigger": false
+  },
+  {
+   "q": "中国の春節の連休日程を教えて",
+   "trigger": false
+  },
+  {
+   "q": "みずほ銀行の12月31日の営業可否を確定して教えて",
+   "trigger": false
+  },
+  {
+   "q": "就業規則の年末年始休暇の条文を作って",
+   "trigger": false
+  },
+  {
+   "q": "残業代の計算方法を教えて",
+   "trigger": false
+  },
+  {
+   "q": "土用の丑の日はいつ？",
+   "trigger": false
+  }
+ ]
+}

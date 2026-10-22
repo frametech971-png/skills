@@ -97,6 +97,15 @@
       "skills": [
         "./skills/jp-invoice-check"
       ]
+    },
+    {
+      "name": "jp-business-days",
+      "description": "日本の祝日・振替休日・国民の休日を踏まえて、営業日を計算する。",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jp-business-days"
+      ]
     }
   ]
 }
